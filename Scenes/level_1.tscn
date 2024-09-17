@@ -1033,13 +1033,13 @@ sources/0 = SubResource("TileSetAtlasSource_6thjx")
 
 [sub_resource type="Curve2D" id="Curve2D_uug4a"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -80, -104, 0, 0, 0, 0, -80, -91, 0, 0, 0, 0, -65, -80, 0, 0, 0, 0, 575, -80, 0, 0, 0, 0, 592, -65, 0, 0, 0, 0, 592, 63, 0, 0, 0, 0, 592, 81, 0, 0, 0, 0, 592, 166, 0, 0, 0, 0, 582, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 432, 166, 0, 0, 0, 0, 432, 121, 0, 0, 0, 0, 424, 112, 0, 0, 0, 0, 191, 113, 0, 0, 0, 0, 177, 128, 0, 0, 0, 0, 177, 160, 0, 0, 0, 0, 166, 176, 0, 0, 0, 0, 25, 176)
+"points": PackedVector2Array(0, 0, 0, 0, -80, -104, 0, 0, 0, 0, -80, -91, 0, 0, 0, 0, -65, -80, 0, 0, 0, 0, 576, -80, 0, 0, 0, 0, 586, -76, 0, 0, 0, 0, 592, -65, 0, 0, 0, 0, 592, 63, 0, 0, 0, 0, 592, 81, 0, 0, 0, 0, 592, 166, 0, 0, 0, 0, 582, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 432, 166, 0, 0, 0, 0, 432, 121, 0, 0, 0, 0, 424, 112, 0, 0, 0, 0, 191, 113, 0, 0, 0, 0, 177, 128, 0, 0, 0, 0, 177, 160, 0, 0, 0, 0, 166, 176, 0, 0, 0, 0, 25, 176)
 }
-point_count = 19
+point_count = 20
 
 [node name="level1" type="Node2D"]
 
-[node name="Map" type="Node" parent="."]
+[node name="Map" type="Node2D" parent="."]
 
 [node name="lowBg" type="TileMapLayer" parent="Map"]
 tile_map_data = PackedByteArray("AAAGAP3/AAANAAQAAAAFAP3/AAANAAQAAAAEAP3/AAANAAQAAAADAP3/AAANAAQAAAACAP3/AAANAAQAAAABAP3/AAANAAQAAAAAAP3/AAANAAQAAAD///3/AAANAAQAAAD+//3/AAANAAQAAAD9//3/AAAMAAQAAAABAAUAAAANAAQAAAACAAUAAAANAAQAAAADAAUAAAANAAQAAAAEAAUAAAANAAQAAAAFAAUAAAAPAAMAAAAFAAQAAAAPAAIAAAALAP3/AAANAAQAAAAMAP3/AAANAAQAAAANAP3/AAANAAQAAAAOAP3/AAANAAQAAAAFAAMAAAAPAAEAAAAGAAMAAAANAAQAAAAPAP3/AAANAAQAAAAQAP3/AAANAAQAAAARAP3/AAANAAQAAAASAP3/AAAOAAQAAAA=")
