@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://chec1wkjibv7c"]
+[gd_scene load_steps=5 format=4 uid="uid://chec1wkjibv7c"]
 
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="1_0ujvt"]
 
@@ -1031,6 +1031,12 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_6thjx")
 
+[sub_resource type="Curve2D" id="Curve2D_uug4a"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -80, -104, 0, 0, 0, 0, -80, -91, 0, 0, 0, 0, -65, -80, 0, 0, 0, 0, 575, -80, 0, 0, 0, 0, 592, -65, 0, 0, 0, 0, 592, 63, 0, 0, 0, 0, 592, 81, 0, 0, 0, 0, 592, 166, 0, 0, 0, 0, 582, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 432, 166, 0, 0, 0, 0, 432, 121, 0, 0, 0, 0, 424, 112, 0, 0, 0, 0, 191, 113, 0, 0, 0, 0, 177, 128, 0, 0, 0, 0, 177, 160, 0, 0, 0, 0, 166, 176, 0, 0, 0, 0, 25, 176)
+}
+point_count = 19
+
 [node name="level1" type="Node2D"]
 
 [node name="Map" type="Node" parent="."]
@@ -1058,3 +1064,6 @@ tile_set = SubResource("TileSet_htfnq")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 48)
 zoom = Vector2(1.5, 1.5)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uug4a")
