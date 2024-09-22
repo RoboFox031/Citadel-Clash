@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://chec1wkjibv7c"]
 
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="1_0ujvt"]
-[ext_resource type="PackedScene" uid="uid://0doyrggyia45" path="res://Scenes/weak_enemy.tscn" id="2_p4mvo"]
 [ext_resource type="PackedScene" uid="uid://cyp6ucyfa6ypd" path="res://Scenes/turnController.tscn" id="3_obip6"]
 [ext_resource type="PackedScene" uid="uid://bdogq3bw3blhy" path="res://Scenes/enemy_objective.tscn" id="4_jxoqb"]
+[ext_resource type="PackedScene" uid="uid://dqkiv2pjew531" path="res://Scenes/wave_controller.tscn" id="5_xwaun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6thjx"]
 texture = ExtResource("1_0ujvt")
@@ -1061,7 +1061,6 @@ tile_map_data = PackedByteArray("AAAHAP3/AAAVAAQAAAAIAP3/AAAVAAQAAAAJAP3/AAAVAAQ
 tile_set = SubResource("TileSet_htfnq")
 
 [node name="foreground" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD+/wYAAAAkAAQAAAD//wUAAAApABMAAAD//wYAAAAlAAQAAAAAAAUAAAAqABMAAAAAAAYAAAAmAAQAAAD+/wUAAAAoABMAAAD+//z/AAAgABUAAAD9//z/AAAvAAUAAAD9//v/AAAAAAwAAAA=")
@@ -1073,21 +1072,6 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="mainPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_uug4a")
-
-[node name="weakEnemy" parent="mainPath" instance=ExtResource("2_p4mvo")]
-position = Vector2(93.1502, 184)
-progress = 1617.85
-rotates = false
-
-[node name="weakEnemy2" parent="mainPath" instance=ExtResource("2_p4mvo")]
-position = Vector2(284.599, 120)
-progress = 1362.4
-rotates = false
-
-[node name="weakEnemy3" parent="mainPath" instance=ExtResource("2_p4mvo")]
-position = Vector2(177.125, 182.904)
-progress = 1532.7
-rotates = false
 
 [node name="TurnControllersAll" type="Node2D" parent="."]
 position = Vector2(592, -80)
@@ -1106,3 +1090,7 @@ position = Vector2(-360, 400)
 
 [node name="enemyObjective" parent="." instance=ExtResource("4_jxoqb")]
 position = Vector2(0, 176)
+
+[node name="WaveController" parent="." instance=ExtResource("5_xwaun")]
+position = Vector2(-80, -146)
+waveCount = 9

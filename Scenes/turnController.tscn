@@ -5,7 +5,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajusu"]
 
 [node name="turnController" type="Area2D"]
-collision_mask = 2
 script = ExtResource("1_duhya")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
