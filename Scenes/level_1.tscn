@@ -1036,9 +1036,9 @@ sources/0 = SubResource("TileSetAtlasSource_6thjx")
 
 [sub_resource type="Curve2D" id="Curve2D_uug4a"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -80, -136, 0, 0, 0, 0, -80, -91, 0, 0, 0, 0, -80, -80, 0, 0, 0, 0, -65, -80, 0, 0, 0, 0, 576, -80, 0, 0, 0, 0, 592, -80, 0, 0, 0, 0, 592, -65, 0, 0, 0, 0, 592, 63, 0, 0, 0, 0, 592, 81, 0, 0, 0, 0, 592, 166, 0, 0, 0, 0, 592, 176, 0, 0, 0, 0, 582, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 442, 176, 0, 0, 0, 0, 432, 176, 0, 0, 0, 0, 432, 166, 0, 0, 0, 0, 432, 121, 0, 0, 0, 0, 432, 112, 0, 0, 0, 0, 424, 112, 0, 0, 0, 0, 191, 113, 0, 0, 0, 0, 176, 112, 0, 0, 0, 0, 177, 128, 0, 0, 0, 0, 177, 160, 0, 0, 0, 0, 176, 176, 0, 0, 0, 0, 166, 176, 0, 0, 0, 0, 8, 176)
+"points": PackedVector2Array(0, 0, 0, 0, -80, -136, 0, 0, 0, 0, -80, -91, 0, 0, 0, 0, -80, -73, 0, 0, 0, 0, 592, -72, 0, 0, 0, 0, 592, 63, 0, 0, 0, 0, 592, 81, 0, 0, 0, 0, 592, 184, 0, 0, 0, 0, 432, 184, 0, 0, 0, 0, 432, 166, 0, 0, 0, 0, 432, 120, 0, 0, 0, 0, 177, 120, 0, 0, 0, 0, 177, 184, 0, 0, 0, 0, 8, 184)
 }
-point_count = 26
+point_count = 13
 
 [node name="level1" type="Node2D"]
 
@@ -1082,14 +1082,15 @@ position = Vector2(592, -80)
 scale = Vector2(0.5, 0.5)
 
 [node name="turnController" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
+position = Vector2(0, 44)
 
 [node name="turnController2" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
-position = Vector2(-336, 512)
+position = Vector2(-320, 490)
 turnH = 1
 turnV = 1
 
 [node name="turnController3" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
-position = Vector2(-336, 384)
+position = Vector2(-360, 400)
 
 [node name="enemyObjective" parent="." instance=ExtResource("4_jxoqb")]
 position = Vector2(0, 176)

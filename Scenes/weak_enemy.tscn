@@ -87,12 +87,13 @@ script = ExtResource("1_s8d1r")
 hurtbox = NodePath("CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_erwhg")
-animation = &"Up"
+animation = &"Down"
 autoplay = "Down"
-frame_progress = 0.721168
+frame_progress = 0.159328
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(0, -2)
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_3umg8")
