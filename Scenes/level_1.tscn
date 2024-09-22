@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://chec1wkjibv7c"]
+[gd_scene load_steps=8 format=4 uid="uid://chec1wkjibv7c"]
 
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="1_0ujvt"]
 [ext_resource type="PackedScene" uid="uid://0doyrggyia45" path="res://Scenes/weak_enemy.tscn" id="2_p4mvo"]
 [ext_resource type="PackedScene" uid="uid://cyp6ucyfa6ypd" path="res://Scenes/turnController.tscn" id="3_obip6"]
+[ext_resource type="PackedScene" uid="uid://bdogq3bw3blhy" path="res://Scenes/enemy_objective.tscn" id="4_jxoqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6thjx"]
 texture = ExtResource("1_0ujvt")
@@ -1089,3 +1090,6 @@ turnV = 1
 
 [node name="turnController3" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
 position = Vector2(-336, 384)
+
+[node name="enemyObjective" parent="." instance=ExtResource("4_jxoqb")]
+position = Vector2(0, 176)
