@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://0doyrggyia45"]
 
 [ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="1_1ifgo"]
-[ext_resource type="Script" path="res://Scripts/weakEnemy.gd" id="1_cuaax"]
+[ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_s8d1r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydnrx"]
 atlas = ExtResource("1_1ifgo")
@@ -49,7 +49,30 @@ animations = [{
 "texture": SubResource("AtlasTexture_5bvm4")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydnrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bvm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6g7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imj47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xltrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nqtd")
+}],
+"loop": true,
+"name": &"Up",
 "speed": 5.0
 }]
 
@@ -58,15 +81,17 @@ radius = 9.0
 
 [node name="weakEnemy" type="PathFollow2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_cuaax")
+[node name="Enemy" type="CharacterBody2D" parent="."]
+collision_layer = 3
+script = ExtResource("1_s8d1r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 sprite_frames = SubResource("SpriteFrames_erwhg")
-autoplay = "default"
-frame_progress = 0.74074
+animation = &"Up"
+autoplay = "Down"
+frame_progress = 0.358652
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_3umg8")
