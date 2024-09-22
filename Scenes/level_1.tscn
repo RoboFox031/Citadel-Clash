@@ -1083,9 +1083,9 @@ scale = Vector2(0.5, 0.5)
 [node name="turnController" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
 
 [node name="turnController2" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
-position = Vector2(-320, 512)
+position = Vector2(-336, 512)
 turnH = 1
 turnV = 1
 
 [node name="turnController3" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
-position = Vector2(-320, 384)
+position = Vector2(-336, 384)

@@ -89,7 +89,7 @@ script = ExtResource("1_s8d1r")
 sprite_frames = SubResource("SpriteFrames_erwhg")
 animation = &"Up"
 autoplay = "Down"
-frame_progress = 0.358652
+frame_progress = 0.166529
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
