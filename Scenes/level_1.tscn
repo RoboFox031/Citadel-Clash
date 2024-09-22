@@ -1074,7 +1074,8 @@ zoom = Vector2(1.5, 1.5)
 curve = SubResource("Curve2D_uug4a")
 
 [node name="weakEnemy" parent="Path2D" instance=ExtResource("2_p4mvo")]
-position = Vector2(-80, -136)
+position = Vector2(93.1502, 184)
+progress = 1617.85
 rotates = false
 
 [node name="TurnControllersAll" type="Node2D" parent="."]

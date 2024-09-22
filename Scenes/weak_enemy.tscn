@@ -91,7 +91,7 @@ position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_erwhg")
 animation = &"Down"
 autoplay = "Down"
-frame_progress = 0.159328
+frame_progress = 0.0857758
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
