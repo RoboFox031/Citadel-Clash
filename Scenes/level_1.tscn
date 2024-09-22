@@ -1061,6 +1061,7 @@ tile_map_data = PackedByteArray("AAAHAP3/AAAVAAQAAAAIAP3/AAAVAAQAAAAJAP3/AAAVAAQ
 tile_set = SubResource("TileSet_htfnq")
 
 [node name="foreground" type="TileMapLayer" parent="Map"]
+visible = false
 z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD+/wYAAAAkAAQAAAD//wUAAAApABMAAAD//wYAAAAlAAQAAAAAAAUAAAAqABMAAAAAAAYAAAAmAAQAAAD+/wUAAAAoABMAAAD+//z/AAAgABUAAAD9//z/AAAvAAUAAAD9//v/AAAAAAwAAAA=")
@@ -1070,12 +1071,22 @@ tile_set = SubResource("TileSet_htfnq")
 position = Vector2(288, 48)
 zoom = Vector2(1.5, 1.5)
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="mainPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_uug4a")
 
-[node name="weakEnemy" parent="Path2D" instance=ExtResource("2_p4mvo")]
+[node name="weakEnemy" parent="mainPath" instance=ExtResource("2_p4mvo")]
 position = Vector2(93.1502, 184)
 progress = 1617.85
+rotates = false
+
+[node name="weakEnemy2" parent="mainPath" instance=ExtResource("2_p4mvo")]
+position = Vector2(284.599, 120)
+progress = 1362.4
+rotates = false
+
+[node name="weakEnemy3" parent="mainPath" instance=ExtResource("2_p4mvo")]
+position = Vector2(177.125, 182.904)
+progress = 1532.7
 rotates = false
 
 [node name="TurnControllersAll" type="Node2D" parent="."]
