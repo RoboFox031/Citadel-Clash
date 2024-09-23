@@ -83,7 +83,7 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" parent="."]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_a0fxq")
-health = 20
+health = 100
 speedMultiplier = 1.1
 damage = 25
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bevrq8rfu1vb0"]
+[gd_scene load_steps=14 format=3 uid="uid://bevrq8rfu1vb0"]
 
 [ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_ninw7"]
 [ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_eogxp"]
+[ext_resource type="PackedScene" uid="uid://xbqax0o4nqn" path="res://Scenes/tiny_spliter_enemy.tscn" id="2_llbln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1str"]
 atlas = ExtResource("2_eogxp")
@@ -97,18 +98,20 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(0, -10)
 script = ExtResource("1_ninw7")
-health = 5
+health = 10
 speedMultiplier = 1.1
-damage = 2
+damage = 4
 type = 1
-splitAmount = 4
+splitAmount = 5
+splitInto = ExtResource("2_llbln")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
-modulate = Color(0.704835, 0.543158, 0.106688, 1)
+modulate = Color(0.0956209, 1, 0.738646, 1)
 sprite_frames = SubResource("SpriteFrames_ptyr1")
 animation = &"Down"
 autoplay = "Down"
 frame_progress = 0.229066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+visible = false
 shape = SubResource("RectangleShape2D_07qe6")

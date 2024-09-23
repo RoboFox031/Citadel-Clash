@@ -7,8 +7,10 @@ var orangeBallEnemy = preload("res://Scenes/orange_ball_enemy.tscn")
 var redBallEnemy = preload("res://Scenes/red_ball_enemy.tscn")
 var bossBall = preload("res://Scenes/boss_ball.tscn")
 #Split Enemies:
+var tinySplitEnemy = preload("res://Scenes/tiny_spliter_enemy.tscn")
+var mediumSplitEnemy= preload("res://Scenes/medium_spliter_enemy.tscn")
 var bigSplitEnemy = preload("res://Scenes/big_spliter_enemy.tscn")
-
+var bossSplitEnemy = preload("res://Scenes/boss_spliter.tscn")
 #Exports the wavecount for trouble shooting
 @export var waveCount:int = 0
 # Called when the node enters the scene tree for the first time.
@@ -21,16 +23,18 @@ func _process(_delta: float) -> void:
 	pass
 	
 #All the enemy spawn Functions
-func spawnEnemy(amount,type:PackedScene):
+func spawnEnemy(amount:int,type:PackedScene):
 	#repeats the folowing code per the amount parameter
 	for i in amount:
 		#Spawns in a weak enemy 
 		var instance = type.instantiate()
 		main_path.add_child(instance)
-		instance.rotates=false
-		instance.rotation=0
+		#Adds in a slight randomess in the gap, for more variety
+		var originalGap = gap_timer.wait_time
+		gap_timer.wait_time+=randf_range(0,.1)
 		gap_timer.start()
 		await(gap_timer.timeout)
+		gap_timer.wait_time = originalGap
 func nextWave():
 	#Adds one to the wave
 	waveCount+=1
@@ -42,13 +46,28 @@ func nextWave():
 		gap_timer.wait_time=2
 		spawnEnemy(waveCount*2,orangeBallEnemy)
 	elif waveCount<=9:
+		gap_timer.wait_time=2
 		await spawnEnemy(waveCount,orangeBallEnemy)
-		spawnEnemy(waveCount-3,redBallEnemy)
+		await spawnEnemy(waveCount-3,redBallEnemy)
+		spawnEnemy(waveCount-7,tinySplitEnemy)
 	elif waveCount ==10:
-		await spawnEnemy(10,redBallEnemy)
+		gap_timer.wait_time=2
 		spawnEnemy(1,bossBall)
 	elif waveCount <=15:
-		spawnEnemy(1,bigSplitEnemy)
+		gap_timer.wait_time=1.5
+		#Multiplied by 1.5, to make more ememies than *1, but less than *2
+		await(spawnEnemy(waveCount*1.5,redBallEnemy))
+		spawnEnemy(waveCount-10,mediumSplitEnemy)
+	elif waveCount ==16:
+		gap_timer.wait_time =.1
+		spawnEnemy(100,orangeBallEnemy)
+	elif waveCount <=19:
+		gap_timer.wait_time=1
+		await(spawnEnemy(waveCount*2,redBallEnemy))
+		spawnEnemy(waveCount-16,bigSplitEnemy)
+	elif waveCount ==20:
+		gap_timer.wait_time=1
+		spawnEnemy(1,bossSplitEnemy)
 	else:
 		print("no more waves!")
 	pass

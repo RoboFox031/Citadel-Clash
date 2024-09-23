@@ -1,42 +1,42 @@
-[gd_scene load_steps=14 format=3 uid="uid://bflvyd3ubv3fa"]
+[gd_scene load_steps=14 format=3 uid="uid://bs3l1fvteo3mf"]
 
-[ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_y58qb"]
-[ext_resource type="PackedScene" uid="uid://bevrq8rfu1vb0" path="res://Scenes/medium_spliter_enemy.tscn" id="2_gi2tv"]
-[ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_wwgjs"]
+[ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_xao41"]
+[ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_cl5e1"]
+[ext_resource type="PackedScene" uid="uid://bevrq8rfu1vb0" path="res://Scenes/medium_spliter_enemy.tscn" id="2_pmwgw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1str"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(16, 56, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jepb7"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(32, 56, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esc08"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(48, 56, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hinv"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(64, 56, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2h0nx"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(0, 56, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2j5x"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(64, 56, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hdrj"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(48, 56, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yobmg"]
-atlas = ExtResource("2_wwgjs")
+atlas = ExtResource("2_cl5e1")
 region = Rect2(32, 56, 16, 28)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3oafq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylsnp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -91,26 +91,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0dyl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hitu5"]
 
-[node name="bigSpliterEnemy" type="PathFollow2D"]
-scale = Vector2(1.1, 1.1)
+[node name="bossSpliter" type="PathFollow2D"]
+scale = Vector2(2, 2)
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(0, -10)
-script = ExtResource("1_y58qb")
-health = 15
-damage = 8
+script = ExtResource("1_xao41")
+health = 30
+speedMultiplier = 0.5
+damage = 20
 type = 1
-splitAmount = 2
-splitInto = ExtResource("2_gi2tv")
+splitAmount = 12
+splitInto = ExtResource("2_pmwgw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
-sprite_frames = SubResource("SpriteFrames_3oafq")
+modulate = Color(1, 0.18184, 0.0206446, 1)
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_ylsnp")
 animation = &"Down"
 autoplay = "Down"
-frame_progress = 0.798255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 visible = false
-shape = SubResource("RectangleShape2D_p0dyl")
+shape = SubResource("RectangleShape2D_hitu5")
