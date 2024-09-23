@@ -2,9 +2,12 @@ extends Node2D
 @onready var main_path: Path2D = $"../mainPath"
 @onready var gap_timer: Timer = $gapTimer
 #Preloads all the enemies
+#Ball Enemies:
 var orangeBallEnemy = preload("res://Scenes/orange_ball_enemy.tscn")
 var redBallEnemy = preload("res://Scenes/red_ball_enemy.tscn")
 var bossBall = preload("res://Scenes/boss_ball.tscn")
+#Split Enemies:
+var bigSplitEnemy = preload("res://Scenes/big_spliter_enemy.tscn")
 
 #Exports the wavecount for trouble shooting
 @export var waveCount:int = 0
@@ -45,6 +48,8 @@ func nextWave():
 	elif waveCount ==10:
 		await spawnEnemy(10,redBallEnemy)
 		spawnEnemy(1,bossBall)
+	elif waveCount <=15:
+		spawnEnemy(1,bigSplitEnemy)
 	else:
 		print("no more waves!")
 	pass
