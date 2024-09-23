@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 	
 #All the enemy spawn Functions
 func spawnEnemy(amount,type:PackedScene):
-
 	#repeats the folowing code per the amount parameter
 	for i in amount:
 		#Spawns in a weak enemy 

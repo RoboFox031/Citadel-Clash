@@ -1036,7 +1036,7 @@ sources/0 = SubResource("TileSetAtlasSource_6thjx")
 
 [sub_resource type="Curve2D" id="Curve2D_uug4a"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -80, -136, 0, 0, 0, 0, -80, -91, 0, 0, 0, 0, -80, -73, 0, 0, 0, 0, 592, -72, 0, 0, 0, 0, 592, 63, 0, 0, 0, 0, 592, 81, 0, 0, 0, 0, 592, 184, 0, 0, 0, 0, 432, 184, 0, 0, 0, 0, 432, 166, 0, 0, 0, 0, 432, 120, 0, 0, 0, 0, 177, 120, 0, 0, 0, 0, 177, 184, 0, 0, 0, 0, 8, 184)
+"points": PackedVector2Array(0, 0, 0, 0, -80, -136, 0, 0, 0, 0, -80, -91, 0, 0, 0, 0, -80, -75, 0, 0, 0, 0, 592, -74, 0, 0, 0, 0, 592, 63, 0, 0, 0, 0, 592, 81, 0, 0, 0, 0, 592, 182, 0, 0, 0, 0, 432, 182, 0, 0, 0, 0, 432, 166, 0, 0, 0, 0, 432, 118, 0, 0, 0, 0, 178, 118, 0, 0, 0, 0, 177, 182, 0, 0, 0, 0, 8, 182)
 }
 point_count = 13
 
@@ -1093,4 +1093,4 @@ position = Vector2(0, 176)
 
 [node name="WaveController" parent="." instance=ExtResource("5_xwaun")]
 position = Vector2(-80, -146)
-waveCount = 11
+waveCount = 10

@@ -108,7 +108,8 @@ splitInto = ExtResource("2_gi2tv")
 sprite_frames = SubResource("SpriteFrames_3oafq")
 animation = &"Down"
 autoplay = "Down"
-frame_progress = 0.660495
+frame_progress = 0.798255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+visible = false
 shape = SubResource("RectangleShape2D_p0dyl")
