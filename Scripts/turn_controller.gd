@@ -11,8 +11,10 @@ func _on_body_entered(body:Node2D):
 	#Makes sure it's an enemy
 		if turnH == hDirection.Left:
 			body.get_child(0).flip_h= false
+			print("left")
 		elif turnH == hDirection.Right:
 			body.get_child(0).flip_h= true
+			print("right")
 		if turnV == vDirection.Up:
 			body.get_child(0).play("Up")
 		elif turnV == vDirection.Down:

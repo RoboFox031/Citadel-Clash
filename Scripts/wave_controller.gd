@@ -1,6 +1,7 @@
 extends Node2D
 @onready var main_path: Path2D = $"../mainPath"
 @onready var gap_timer: Timer = $gapTimer
+
 #Preloads all the enemies
 #Ball Enemies:
 var orangeBallEnemy = preload("res://Scenes/orange_ball_enemy.tscn")
@@ -11,6 +12,9 @@ var tinySplitEnemy = preload("res://Scenes/tiny_spliter_enemy.tscn")
 var mediumSplitEnemy= preload("res://Scenes/medium_spliter_enemy.tscn")
 var bigSplitEnemy = preload("res://Scenes/big_spliter_enemy.tscn")
 var bossSplitEnemy = preload("res://Scenes/boss_spliter.tscn")
+#Blocker Enemies:
+var mediumBlocker = preload("res://Scenes/medium_blocker.tscn")
+
 #Exports the wavecount for trouble shooting
 @export var waveCount:int = 0
 # Called when the node enters the scene tree for the first time.
@@ -68,6 +72,9 @@ func nextWave():
 	elif waveCount ==20:
 		gap_timer.wait_time=1
 		spawnEnemy(1,bossSplitEnemy)
+	elif waveCount <=25:
+		gap_timer.wait_time=1
+		spawnEnemy(1,mediumBlocker)
 	else:
 		print("no more waves!")
 	pass

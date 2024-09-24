@@ -101,6 +101,7 @@ script = ExtResource("1_xao41")
 health = 30
 speedMultiplier = 0.5
 damage = 20
+worth = 50
 type = 1
 splitAmount = 12
 splitInto = ExtResource("2_pmwgw")

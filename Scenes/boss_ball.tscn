@@ -83,9 +83,10 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" parent="."]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_a0fxq")
-health = 100
+health = 80
 speedMultiplier = 1.1
 damage = 25
+worth = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 modulate = Color(1.34766e-05, 0.943267, 0.621607, 1)
