@@ -26,8 +26,8 @@ func _ready() -> void:
 	#Makes them not rotate on the curves
 	get_parent().rotates=false
 	get_parent().rotation=0
-	
-	blockTimer.wait_time=supportFrequency
+	if blockTimer != null:
+		blockTimer.wait_time=supportFrequency
 	if type==enemyType.Blocker:
 		blockTimer.wait_time = supportFrequency
 		blockTimer.timeout.connect(block)

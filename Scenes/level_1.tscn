@@ -1041,6 +1041,7 @@ _data = {
 point_count = 13
 
 [node name="level1" type="Node2D"]
+position = Vector2(96, 160)
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -1093,4 +1094,4 @@ position = Vector2(0, 176)
 
 [node name="WaveController" parent="." instance=ExtResource("5_xwaun")]
 position = Vector2(-80, -146)
-waveCount = 20
+waveCount = 19
