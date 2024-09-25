@@ -1,23 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsfo7508vg4sa"]
+[gd_scene load_steps=8 format=3 uid="uid://bsfo7508vg4sa"]
 
 [ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_3hbbl"]
 [ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_8tgom"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uc0m0"]
-atlas = ExtResource("2_8tgom")
-region = Rect2(16, 84, 16, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3e33n"]
-atlas = ExtResource("2_8tgom")
-region = Rect2(32, 84, 16, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kf07y"]
-atlas = ExtResource("2_8tgom")
-region = Rect2(48, 84, 16, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x10sb"]
-atlas = ExtResource("2_8tgom")
-region = Rect2(96, 84, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_555gf"]
 atlas = ExtResource("2_8tgom")
@@ -33,26 +17,6 @@ region = Rect2(48, 84, 16, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2invj"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uc0m0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3e33n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kf07y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3e33n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x10sb")
-}],
-"loop": true,
-"name": &"Block",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_555gf")
@@ -96,19 +60,19 @@ size = Vector2(16, 20)
 [node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("blockTimer")]
 script = ExtResource("1_3hbbl")
 health = 5
-speedMultiplier = 1.2
-damage = 3
-worth = 20
+speedMultiplier = 0.8
+damage = 2
+worth = 16
 type = 2
-supportFrequency = 5.0
+supportFrequency = 10.0
+supportLength = 4.0
 blockTimer = NodePath("../blockTimer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_2invj")
-animation = &"Block"
+animation = &"Down"
 autoplay = "Up"
-frame_progress = 0.322885
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
@@ -116,3 +80,4 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_olh6u")
 
 [node name="blockTimer" type="Timer" parent="."]
+one_shot = true

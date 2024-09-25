@@ -3,6 +3,7 @@ class_name Enemy
 
 const SPEED = 60.0
 
+
 enum enemyType {Ball,Spliter,Blocker}
 @export var health : int = 1
 @export var speedMultiplier :float =1
@@ -12,10 +13,13 @@ enum enemyType {Ball,Spliter,Blocker}
 @export var splitAmount: int =0
 #adds in enemies it can split into
 @export var splitInto: PackedScene
+#Adds support frequency and length
 @export var supportFrequency:float=0
-
+@export var supportLength:float = 5
 #Adds a timer for the blocker enemy to use
 @export var blockTimer:Timer
+#Adds the sheild for the blocker
+var sheild = preload("res://Scenes/sheild.tscn")
 
 
 func _ready() -> void:
@@ -26,12 +30,12 @@ func _ready() -> void:
 	#Makes them not rotate on the curves
 	get_parent().rotates=false
 	get_parent().rotation=0
-	if blockTimer != null:
-		blockTimer.wait_time=supportFrequency
+	
 	if type==enemyType.Blocker:
 		blockTimer.wait_time = supportFrequency
 		blockTimer.timeout.connect(block)
 		blockTimer.start()
+		
 		pass
 	
 func _physics_process(delta):
@@ -56,12 +60,11 @@ func split():
 		get_parent().queue_free()
 #The function that allows for blockers to block
 func block():
-	print("block!")
-	apply_scale(Vector2(2,2))
-	get_child(0).play("Block")
-	await get_child(0).animation_finished.connect()
-	print("no block")
-	blockTimer.start()
+	if get_parent().progress_ratio<80:
+		var instance = sheild.instantiate()
+		add_child(instance)
+		instance.duriation = supportLength
+	
 
 
 func takeDamage (amount:int):
