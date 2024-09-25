@@ -13,7 +13,7 @@ var mediumSplitEnemy= preload("res://Scenes/medium_spliter_enemy.tscn")
 var bigSplitEnemy = preload("res://Scenes/big_spliter_enemy.tscn")
 var bossSplitEnemy = preload("res://Scenes/boss_spliter.tscn")
 #Blocker Enemies:
-var mediumBlocker = preload("res://Scenes/medium_blocker.tscn")
+var mediumBlocker = preload("res://Scenes/blocker.tscn")
 
 #Exports the wavecount for trouble shooting
 @export var waveCount:int = 0

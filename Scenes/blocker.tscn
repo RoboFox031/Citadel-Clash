@@ -1,18 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsfo7508vg4sa"]
 
-[ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_3hbbl"]
-[ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_8tgom"]
+[ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_egw3f"]
+[ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_ampat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_555gf"]
-atlas = ExtResource("2_8tgom")
+atlas = ExtResource("2_ampat")
 region = Rect2(16, 84, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tctdc"]
-atlas = ExtResource("2_8tgom")
+atlas = ExtResource("2_ampat")
 region = Rect2(32, 84, 16, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csnoc"]
-atlas = ExtResource("2_8tgom")
+atlas = ExtResource("2_ampat")
 region = Rect2(48, 84, 16, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2invj"]
@@ -55,10 +55,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olh6u"]
 size = Vector2(16, 20)
 
-[node name="mediumBlocker" type="PathFollow2D"]
+[node name="Blocker" type="PathFollow2D"]
 
 [node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("blockTimer")]
-script = ExtResource("1_3hbbl")
+script = ExtResource("1_egw3f")
 health = 5
 speedMultiplier = 0.8
 damage = 2
