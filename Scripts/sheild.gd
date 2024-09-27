@@ -2,6 +2,7 @@ extends Area2D
 @onready var sheild_duration: Timer = $SheildDuration
 var duriation = 5
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sheild_duration.wait_time = duriation
@@ -10,7 +11,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	print()
+	if get_parent().get_parent().progress_ratio>.75:
+		queue_free()
+	
 
 
 func _on_sheild_duration_timeout() -> void:

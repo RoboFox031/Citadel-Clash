@@ -32,7 +32,7 @@ func _ready() -> void:
 	get_parent().rotation=0
 	
 	if type==enemyType.Blocker:
-		blockTimer.wait_time = supportFrequency
+		blockTimer.wait_time = supportFrequency+ randf_range(0,1.5)
 		blockTimer.timeout.connect(block)
 		blockTimer.start()
 		
@@ -60,10 +60,11 @@ func split():
 		get_parent().queue_free()
 #The function that allows for blockers to block
 func block():
-	if get_parent().progress_ratio<80:
+	if get_parent().progress_ratio<.75:
 		var instance = sheild.instantiate()
 		add_child(instance)
 		instance.duriation = supportLength
+		
 	
 
 
