@@ -1,1 +1,5 @@
 Ivan Voirol -- Tileset: https://opengameart.org/content/slates-32x32px-orthogonal-tileset-by-ivan-voirol
+
+GrafxKid -- Enemy Sprites: https://opengameart.org/content/platformer-baddies
+
+Matriax -- Shield Animation: https://opengameart.org/content/fire-circle-fx

@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=3 uid="uid://bevrq8rfu1vb0"]
+
+[ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_ninw7"]
+[ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_eogxp"]
+[ext_resource type="PackedScene" uid="uid://xbqax0o4nqn" path="res://Scenes/tiny_spliter_enemy.tscn" id="2_llbln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1str"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(16, 56, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jepb7"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(32, 56, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esc08"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(48, 56, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hinv"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(64, 56, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h0nx"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(0, 56, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2j5x"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(64, 56, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hdrj"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(48, 56, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yobmg"]
+atlas = ExtResource("2_eogxp")
+region = Rect2(32, 56, 16, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptyr1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1str")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jepb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esc08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hinv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h0nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2j5x")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1str")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jepb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esc08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hinv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h0nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2j5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hdrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yobmg")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07qe6"]
+
+[node name="mediumSpliterEnemy" type="PathFollow2D"]
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(0, -10)
+script = ExtResource("1_ninw7")
+health = 10
+speedMultiplier = 1.1
+damage = 4
+worth = 12
+type = 1
+splitAmount = 5
+splitInto = ExtResource("2_llbln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+modulate = Color(0.0956209, 1, 0.738646, 1)
+sprite_frames = SubResource("SpriteFrames_ptyr1")
+animation = &"Down"
+autoplay = "Down"
+frame_progress = 0.229066
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+visible = false
+shape = SubResource("RectangleShape2D_07qe6")

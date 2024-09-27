@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsfo7508vg4sa"]
+
+[ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_egw3f"]
+[ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_ampat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_555gf"]
+atlas = ExtResource("2_ampat")
+region = Rect2(16, 84, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tctdc"]
+atlas = ExtResource("2_ampat")
+region = Rect2(32, 84, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csnoc"]
+atlas = ExtResource("2_ampat")
+region = Rect2(48, 84, 16, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2invj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_555gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tctdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csnoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tctdc")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_555gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tctdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csnoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tctdc")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olh6u"]
+size = Vector2(16, 20)
+
+[node name="Blocker" type="PathFollow2D"]
+
+[node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("blockTimer")]
+script = ExtResource("1_egw3f")
+health = 5
+speedMultiplier = 0.8
+damage = 2
+worth = 16
+type = 2
+supportFrequency = 10.0
+supportLength = 4.0
+blockTimer = NodePath("../blockTimer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_2invj")
+animation = &"Down"
+autoplay = "Up"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_olh6u")
+
+[node name="blockTimer" type="Timer" parent="."]
+one_shot = true
