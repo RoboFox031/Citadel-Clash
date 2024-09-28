@@ -2,6 +2,7 @@ extends Node2D
 @onready var main_path: Path2D = $"../mainPath"
 @onready var gap_timer: Timer = $gapTimer
 
+var active:bool = false
 #Preloads all the enemies
 #Ball Enemies:
 var orangeBallEnemy = preload("res://Scenes/orange_ball_enemy.tscn")
@@ -22,8 +23,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		nextWave()
+	#resets the active variable once everything is dead, or has made it
+	if(main_path.get_child_count()<=0):
+			active = false
 	pass
 	
 #All the enemy spawn Functions
@@ -40,41 +42,44 @@ func spawnEnemy(amount:int,type:PackedScene):
 		await(gap_timer.timeout)
 		gap_timer.wait_time = originalGap
 func nextWave():
-	#Adds one to the wave
-	waveCount+=1
-	print(waveCount)
-	#Controls amount, types and frequency 
-	#of enemies based on wave number
-	#Folowing statements define each grouping of waves
-	if waveCount<=5:
-		gap_timer.wait_time=2
-		spawnEnemy(waveCount*2,orangeBallEnemy)
-	elif waveCount<=9:
-		gap_timer.wait_time=2
-		await spawnEnemy(waveCount,orangeBallEnemy)
-		await spawnEnemy(waveCount-3,redBallEnemy)
-		spawnEnemy(waveCount-7,tinySplitEnemy)
-	elif waveCount ==10:
-		gap_timer.wait_time=2
-		spawnEnemy(1,bossBall)
-	elif waveCount <=15:
-		gap_timer.wait_time=1.5
-		#Multiplied by 1.5, to make more ememies than *1, but less than *2
-		await(spawnEnemy(waveCount*1.5,redBallEnemy))
-		spawnEnemy(waveCount-10,mediumSplitEnemy)
-	elif waveCount ==16:
-		gap_timer.wait_time =.1
-		spawnEnemy(100,orangeBallEnemy)
-	elif waveCount <=19:
-		gap_timer.wait_time=1
-		await(spawnEnemy(waveCount*2,redBallEnemy))
-		spawnEnemy(waveCount-16,bigSplitEnemy)
-	elif waveCount ==20:
-		gap_timer.wait_time=1
-		spawnEnemy(1,bossSplitEnemy)
-	elif waveCount <=25:
-		gap_timer.wait_time=1
-		spawnEnemy(1,mediumBlocker)
-	else:
-		print("no more waves!")
-	pass
+	#Only lets it start a new wave if the old one is done
+	if active == false:
+		active=true
+		#Adds one to the wave
+		waveCount+=1
+		print(waveCount)
+		#Controls amount, types and frequency 
+		#of enemies based on wave number
+		#Folowing statements define each grouping of waves
+		if waveCount<=5:
+			gap_timer.wait_time=2
+			spawnEnemy(waveCount*2,orangeBallEnemy)
+		elif waveCount<=9:
+			gap_timer.wait_time=2
+			await spawnEnemy(waveCount,orangeBallEnemy)
+			await spawnEnemy(waveCount-3,redBallEnemy)
+			spawnEnemy(waveCount-7,tinySplitEnemy)
+		elif waveCount ==10:
+			gap_timer.wait_time=2
+			spawnEnemy(1,bossBall)
+		elif waveCount <=15:
+			gap_timer.wait_time=1.5
+			#Multiplied by 1.5, to make more ememies than *1, but less than *2
+			await(spawnEnemy(waveCount*1.5,redBallEnemy))
+			spawnEnemy(waveCount-10,mediumSplitEnemy)
+		elif waveCount ==16:
+			gap_timer.wait_time =.1
+			spawnEnemy(100,orangeBallEnemy)
+		elif waveCount <=19:
+			gap_timer.wait_time=1
+			await(spawnEnemy(waveCount*2,redBallEnemy))
+			spawnEnemy(waveCount-16,bigSplitEnemy)
+		elif waveCount ==20:
+			gap_timer.wait_time=1
+			spawnEnemy(1,bossSplitEnemy)
+		elif waveCount <=25:
+			gap_timer.wait_time=1
+			spawnEnemy(1,tinySplitEnemy)
+		else:
+			print("no more waves!")
+		pass

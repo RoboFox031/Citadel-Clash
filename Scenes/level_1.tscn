@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://chec1wkjibv7c"]
+[gd_scene load_steps=9 format=4 uid="uid://chec1wkjibv7c"]
 
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="1_0ujvt"]
 [ext_resource type="PackedScene" uid="uid://cyp6ucyfa6ypd" path="res://Scenes/turnController.tscn" id="3_obip6"]
 [ext_resource type="PackedScene" uid="uid://bdogq3bw3blhy" path="res://Scenes/enemy_objective.tscn" id="4_jxoqb"]
+[ext_resource type="PackedScene" uid="uid://ddtvpp1dfpwu3" path="res://Scenes/hud.tscn" id="5_f1485"]
 [ext_resource type="PackedScene" uid="uid://dqkiv2pjew531" path="res://Scenes/wave_controller.tscn" id="5_xwaun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6thjx"]
@@ -1068,8 +1069,8 @@ tile_map_data = PackedByteArray("AAD+/wYAAAAkAAQAAAD//wUAAAApABMAAAD//wYAAAAlAAQ
 tile_set = SubResource("TileSet_htfnq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 48)
-zoom = Vector2(1.5, 1.5)
+position = Vector2(354, 115)
+zoom = Vector2(2, 2)
 
 [node name="mainPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_uug4a")
@@ -1095,3 +1096,7 @@ position = Vector2(0, 176)
 [node name="WaveController" parent="." instance=ExtResource("5_xwaun")]
 position = Vector2(-80, -146)
 waveCount = 21
+
+[node name="HUD" parent="." instance=ExtResource("5_f1485")]
+z_index = -1
+position = Vector2(-95, -161)

@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddtvpp1dfpwu3"]
+
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_18jnv"]
+[ext_resource type="Texture2D" uid="uid://d334ni8rnkjj5" path="res://Sprites/HUDBasev2.png.png" id="1_h0kda"]
+[ext_resource type="Texture2D" uid="uid://c8qoum1eyixom" path="res://Sprites/heart.png" id="2_abjfp"]
+[ext_resource type="Texture2D" uid="uid://p0o1jxj3u7xv" path="res://Sprites/Coin.png" id="3_l57sb"]
+[ext_resource type="Texture2D" uid="uid://bvudcqpd200w2" path="res://Sprites/PlayButton.png" id="5_xxs2c"]
+[ext_resource type="Texture2D" uid="uid://c7frxs5lbbno6" path="res://Sprites/ExitButton.png" id="6_i4w46"]
+
+[node name="HUD" type="Node2D"]
+script = ExtResource("1_18jnv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(450, 275)
+texture = ExtResource("1_h0kda")
+region_rect = Rect2(384, 208, 968, 616)
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(795, 446)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_abjfp")
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(795, 483)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("3_l57sb")
+
+[node name="CoinCount" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 838.0
+offset_top = 470.0
+offset_right = 878.0
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x 00"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+self_modulate = Color(1, 0, 0.179992, 1)
+offset_left = 813.0
+offset_top = 438.0
+offset_right = 894.0
+offset_bottom = 454.0
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -4.0
+offset_right = 60.0
+offset_bottom = 19.0
+text = "100"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NextWave" type="Button" parent="."]
+offset_left = 778.0
+offset_top = 501.0
+offset_right = 826.0
+offset_bottom = 549.0
+scale = Vector2(0.8, 0.8)
+icon = ExtResource("5_xxs2c")
+flat = true
+
+[node name="Quit?" type="Button" parent="."]
+offset_left = 851.0
+offset_top = 501.0
+offset_right = 899.0
+offset_bottom = 549.0
+scale = Vector2(0.8, 0.8)
+icon = ExtResource("6_i4w46")
+flat = true
+
+[connection signal="pressed" from="NextWave" to="." method="_on_next_wave_pressed"]

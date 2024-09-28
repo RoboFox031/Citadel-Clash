@@ -63,14 +63,19 @@ func block():
 		add_child(instance)
 		instance.duriation = supportLength
 		
-	
-
-
+#Checks if eveything has completed, or is dead
+func waveCheck():
+	if(get_parent().get_parent().get_child_count()<=1):
+			print("All Enemies Defeated")
+			#gives 10 coins for finishing the wave
+			$"../../../HUD".addCoins(10)
 func takeDamage (amount:int):
 	health-=amount
 	print(health)
-	#lose health
+	#lose healt
 	if health<=0:
+		#Adds coins on enemy death
+		$"../../../HUD".addCoins(worth)
 		#Splits the spliter enemy, and deletes the rest
 		if enemyType.Spliter:
 			if splitInto!= null:
@@ -79,9 +84,10 @@ func takeDamage (amount:int):
 				#Deletes the last splitter in chain (tiny one)
 				get_parent().queue_free()
 				print("be gone!")
+				waveCheck()
 				
 		else:
 			#deletes enemies, when they die
 			get_parent().queue_free()
 			print("be gone!")
-			#deletes enemy if it's dead
+			waveCheck()
