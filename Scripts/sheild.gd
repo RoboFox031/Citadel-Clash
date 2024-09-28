@@ -5,14 +5,13 @@ var duriation = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sheild_duration.wait_time = duriation
+	sheild_duration.wait_time = duriation+randf_range(0,1.5)
 	sheild_duration.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print()
-	if get_parent().get_parent().progress_ratio>.75:
+	if get_parent().get_parent().progress_ratio>.85:
 		queue_free()
 	
 

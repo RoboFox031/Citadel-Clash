@@ -48,7 +48,6 @@ func _physics_process(delta):
 func split():
 	if enemyType.Spliter:
 		var parentProgress:float = get_parent().progress
-		print("parent Progress:", parentProgress)
 		for i in splitAmount:
 			#adds randomness of how far apart they spawn
 			var spawnOffset = randf_range(20,25)
@@ -56,7 +55,6 @@ func split():
 				var instance = splitInto.instantiate()
 				get_parent().get_parent().add_child(instance)
 				instance.progress = parentProgress-(i+1)*spawnOffset
-				print(i,",",instance.progress)
 		get_parent().queue_free()
 #The function that allows for blockers to block
 func block():
