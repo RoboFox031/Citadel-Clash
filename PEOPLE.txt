@@ -3,3 +3,7 @@ Ivan Voirol -- Tileset: https://opengameart.org/content/slates-32x32px-orthogona
 GrafxKid -- Enemy Sprites: https://opengameart.org/content/platformer-baddies
 
 Matriax -- Shield Animation: https://opengameart.org/content/fire-circle-fx
+
+rihatsux -- Heart Sprite: https://opengameart.org/content/heart-nes-colors
+
+pritishor -- Coin Sprite: https://opengameart.org/content/simple-coin
