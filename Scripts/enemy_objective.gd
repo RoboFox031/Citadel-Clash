@@ -16,7 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 		#so instead of adding delay, it just chcks for <= 1 enemy
 		if(main_path.get_child_count()<=1):
 			print("All Enemies Defeated")
-			#gives 10 coins for finishing the wave
-			hud.addCoins(10)
+			#gives the amount of coins for winning a wave
+			body.waveCheck()
 
 		

@@ -67,8 +67,8 @@ func block():
 func waveCheck():
 	if(get_parent().get_parent().get_child_count()<=1):
 			print("All Enemies Defeated")
-			#gives 10 coins for finishing the wave
-			$"../../../HUD".addCoins(10)
+			#gives 5 coins for finishing the wave
+			$"../../../HUD".addCoins(5)
 func takeDamage (amount:int):
 	health-=amount
 	print(health)
