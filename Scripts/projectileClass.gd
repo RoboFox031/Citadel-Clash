@@ -1,17 +1,26 @@
 extends Area2D
 class_name Projectile
 
-var damage = 1
 @export var speed = 5
-var target
 var attackPoint = Vector2(0,0)
+var attackOffset:Vector2 = Vector2(0,-10)
+
+var damage = 1
+var target
+var startPoint:Vector2
+var startRot
+
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Makes it posible to hit enemy
 	body_entered.connect(hitEnemy)
-	#Sets the speed, so it's always faster than the target
+	#Makes it start with the tower position, and rotation
+	global_position=startPoint
+	rotation =startRot
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,9 +29,9 @@ func _physics_process(delta: float) -> void:
 	if target != null:
 		#The rotate line is only for visuals, the projectile still moves correctly without it
 		#The +pi/2 in the rotate is a rotation offset
-		rotate(get_angle_to(target.global_position)+(3.14159265358979/2))
+		rotate(get_angle_to(target.global_position+attackOffset)+(3.14159265358979/2))
 		#Sets the attack point to a point between you and the target
-		attackPoint = target.global_position-global_position
+		attackPoint = (target.global_position+attackOffset)-global_position
 		#normalized makes the point from before into a line with a lenght of 1
 		attackPoint.normalized()
 		#Moves the projectile in the direction of the target

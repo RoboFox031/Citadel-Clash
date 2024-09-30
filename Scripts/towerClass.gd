@@ -38,7 +38,7 @@ func fireProj():
 	if inRangeEnemies != []:
 		#Plays the attakc animation
 		$Weapon.play("Attack")
-		await $Weapon.frame_changed
+		#await $Weapon.frame_changed
 		#Double checks in case the enemy died during the animation
 		if inRangeEnemies != []:
 			#Makes Projectile
@@ -49,16 +49,21 @@ func fireProj():
 			get_parent().add_child.call_deferred(instance)
 			instance.damage = damage
 			instance.target = inRangeEnemies[0].get_parent()
+			instance.startPoint = $Weapon.global_position
+			instance.startRot = $Weapon.rotation
 		
 	
 #Adds the enemy to the array
 func addToRange(body:Node2D):
 	if(body is Enemy):
 		inRangeEnemies.append(body)
-		attackTimer.start()
 		#Makes it instantly fire if this is the only enemy to enter it
 		if inRangeEnemies[0] == body:
 			fireProj()
+		#If it's not the only enemy, attack as normal
+		else:
+			attackTimer.start()
+		
 #remove the enemy from the array
 func removeFromRange(body:Node2D):
 	if(body is Enemy):
