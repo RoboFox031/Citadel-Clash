@@ -111,5 +111,5 @@ animation = &"Down"
 autoplay = "Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-visible = false
+position = Vector2(0, -8.88889)
 shape = SubResource("RectangleShape2D_mbqsn")

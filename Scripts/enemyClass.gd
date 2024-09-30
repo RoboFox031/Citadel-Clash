@@ -53,7 +53,7 @@ func split():
 			var spawnOffset = randf_range(20,25)
 			if parentProgress-abs((i+1)*spawnOffset)>0:
 				var instance = splitInto.instantiate()
-				get_parent().get_parent().add_child(instance)
+				get_parent().get_parent().add_child.call_deferred(instance)
 				instance.progress = parentProgress-(i+1)*spawnOffset
 		get_parent().queue_free()
 #The function that allows for blockers to block

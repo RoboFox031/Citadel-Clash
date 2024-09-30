@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://chec1wkjibv7c"]
+[gd_scene load_steps=10 format=4 uid="uid://chec1wkjibv7c"]
 
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="1_0ujvt"]
 [ext_resource type="PackedScene" uid="uid://cyp6ucyfa6ypd" path="res://Scenes/turnController.tscn" id="3_obip6"]
 [ext_resource type="PackedScene" uid="uid://bdogq3bw3blhy" path="res://Scenes/enemy_objective.tscn" id="4_jxoqb"]
 [ext_resource type="PackedScene" uid="uid://ddtvpp1dfpwu3" path="res://Scenes/hud.tscn" id="5_f1485"]
 [ext_resource type="PackedScene" uid="uid://dqkiv2pjew531" path="res://Scenes/wave_controller.tscn" id="5_xwaun"]
+[ext_resource type="PackedScene" uid="uid://sgcyw5tdj5ye" path="res://Scenes/arrow_tower.tscn" id="6_0rxxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6thjx"]
 texture = ExtResource("1_0ujvt")
@@ -1042,9 +1043,9 @@ _data = {
 point_count = 13
 
 [node name="level1" type="Node2D"]
-position = Vector2(96, 160)
 
 [node name="Map" type="Node2D" parent="."]
+position = Vector2(96, 160)
 
 [node name="lowBg" type="TileMapLayer" parent="Map"]
 tile_map_data = PackedByteArray("AAAGAP3/AAANAAQAAAAFAP3/AAANAAQAAAAEAP3/AAANAAQAAAADAP3/AAANAAQAAAACAP3/AAANAAQAAAABAP3/AAANAAQAAAAAAP3/AAANAAQAAAD///3/AAANAAQAAAD+//3/AAANAAQAAAD9//3/AAAMAAQAAAABAAUAAAANAAQAAAACAAUAAAANAAQAAAADAAUAAAANAAQAAAAEAAUAAAANAAQAAAAFAAUAAAAPAAMAAAAFAAQAAAAPAAIAAAALAP3/AAANAAQAAAAMAP3/AAANAAQAAAANAP3/AAANAAQAAAAOAP3/AAANAAQAAAAFAAMAAAAPAAEAAAAGAAMAAAANAAQAAAAPAP3/AAANAAQAAAAQAP3/AAANAAQAAAARAP3/AAANAAQAAAASAP3/AAAOAAQAAAA=")
@@ -1070,13 +1071,15 @@ tile_set = SubResource("TileSet_htfnq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(354, 115)
+offset = Vector2(96, 160)
 zoom = Vector2(2, 2)
 
 [node name="mainPath" type="Path2D" parent="."]
+position = Vector2(96, 160)
 curve = SubResource("Curve2D_uug4a")
 
 [node name="TurnControllersAll" type="Node2D" parent="."]
-position = Vector2(592, -80)
+position = Vector2(688, 80)
 scale = Vector2(0.5, 0.5)
 
 [node name="turnController" parent="TurnControllersAll" instance=ExtResource("3_obip6")]
@@ -1091,12 +1094,20 @@ turnV = 1
 position = Vector2(-360, 400)
 
 [node name="enemyObjective" parent="." instance=ExtResource("4_jxoqb")]
-position = Vector2(0, 176)
+position = Vector2(96, 336)
 
 [node name="WaveController" parent="." instance=ExtResource("5_xwaun")]
 position = Vector2(-80, -146)
-waveCount = 21
+waveCount = 10
 
 [node name="HUD" parent="." instance=ExtResource("5_f1485")]
 z_index = -1
-position = Vector2(-95, -161)
+
+[node name="arrowTower" parent="." instance=ExtResource("6_0rxxx")]
+position = Vector2(133, 106)
+
+[node name="arrowTower2" parent="." instance=ExtResource("6_0rxxx")]
+position = Vector2(252, 102)
+
+[node name="arrowTower3" parent="." instance=ExtResource("6_0rxxx")]
+position = Vector2(367, 121)

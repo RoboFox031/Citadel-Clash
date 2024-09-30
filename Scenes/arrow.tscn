@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://ditg0goum4xp"]
+
+[ext_resource type="Script" path="res://Scripts/projectileClass.gd" id="1_che8y"]
+[ext_resource type="Texture2D" uid="uid://cdc7ewfnmql0r" path="res://Sprites/Tower Defence Towers/Arrow Tower/Tower 01 - Level 01 - Projectile.png" id="2_vsyg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3glq"]
+size = Vector2(8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxw1l"]
+atlas = ExtResource("2_vsyg4")
+region = Rect2(0, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl2hl"]
+atlas = ExtResource("2_vsyg4")
+region = Rect2(8, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8scp"]
+atlas = ExtResource("2_vsyg4")
+region = Rect2(16, 0, 8, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3w1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxw1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl2hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8scp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Arrow" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_che8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c3glq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b3w1o")
+autoplay = "default"
+frame_progress = 0.626279

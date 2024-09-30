@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -24,7 +24,6 @@ func addCoins(amount):
 	coin_count.text = str("x ",wealth)
 	
 func takeDamage(amount):
-	print("ow",amount)
 	health-=amount
 	progress_bar.value =health
 	$ProgressBar/Label.text = str(progress_bar.value)
