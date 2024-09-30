@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf8jme5cdh0jy"
-path="res://.godot/imported/Tower 02 - Level 01 - Projectile - Impact.png-7eabc66038ed2ded00c5a5108ccd1c07.ctex"
+uid="uid://bn5tcuda4ucg2"
+path="res://.godot/imported/Tower 02 - Level 02 - Projectile - Impact.png-6615fe10209d57ea99540063e8772fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tower Defence Towers/Hit Animation?/Tower 02 - Level 01 - Projectile - Impact.png"
-dest_files=["res://.godot/imported/Tower 02 - Level 01 - Projectile - Impact.png-7eabc66038ed2ded00c5a5108ccd1c07.ctex"]
+source_file="res://Sprites/Tower Defence Towers/Hit Animations/Tower 02 - Level 02 - Projectile - Impact.png"
+dest_files=["res://.godot/imported/Tower 02 - Level 02 - Projectile - Impact.png-6615fe10209d57ea99540063e8772fcc.ctex"]
 
 [params]
 

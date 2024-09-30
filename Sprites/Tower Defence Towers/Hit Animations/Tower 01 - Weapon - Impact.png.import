@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8eitvj5d6bn3"
-path="res://.godot/imported/Tower 01 - Weapon - Impact.png-b9e7cabf0e9b48d056959d1af8bbb050.ctex"
+path="res://.godot/imported/Tower 01 - Weapon - Impact.png-882b8c551e2606e00dbe743b91c97e72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tower Defence Towers/Hit Animation?/Tower 01 - Weapon - Impact.png"
-dest_files=["res://.godot/imported/Tower 01 - Weapon - Impact.png-b9e7cabf0e9b48d056959d1af8bbb050.ctex"]
+source_file="res://Sprites/Tower Defence Towers/Hit Animations/Tower 01 - Weapon - Impact.png"
+dest_files=["res://.godot/imported/Tower 01 - Weapon - Impact.png-882b8c551e2606e00dbe743b91c97e72.ctex"]
 
 [params]
 

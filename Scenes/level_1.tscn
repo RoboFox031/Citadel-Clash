@@ -1070,9 +1070,8 @@ tile_map_data = PackedByteArray("AAD+/wYAAAAkAAQAAAD//wUAAAApABMAAAD//wYAAAAlAAQ
 tile_set = SubResource("TileSet_htfnq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(354, 115)
-offset = Vector2(96, 160)
-zoom = Vector2(2, 2)
+position = Vector2(450, 266)
+zoom = Vector2(1.5, 1.5)
 
 [node name="mainPath" type="Path2D" parent="."]
 position = Vector2(96, 160)
