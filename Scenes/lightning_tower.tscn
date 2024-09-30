@@ -1,8 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://c75a2fdwdiis6"]
+[gd_scene load_steps=8 format=3 uid="uid://c75a2fdwdiis6"]
 
 [ext_resource type="Script" path="res://Scripts/lightning_tower.gd" id="1_605ra"]
 [ext_resource type="Texture2D" uid="uid://8f7u1y6irj2e" path="res://Sprites/Tower Defence Towers/Electric Tower/LightningTowerFinal.png" id="2_4cvso"]
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="3_fst6p"]
+[ext_resource type="Texture2D" uid="uid://cfdy3nr044fbf" path="res://Sprites/Tower Defence Towers/Electric Tower/Tower 02 - Level 01 - Weapon.png" id="4_rubje"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddtiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rubje")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oim11"]
 size = Vector2(64, 98)
@@ -28,8 +40,7 @@ region_rect = Rect2(256, 352, 32, 32)
 
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
-animation = &"Attack"
-autoplay = "Idle"
+sprite_frames = SubResource("SpriteFrames_ddtiw")
 offset = Vector2(0, -6)
 
 [node name="PlacementHitbox" type="Area2D" parent="."]
