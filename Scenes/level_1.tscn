@@ -1108,7 +1108,7 @@ z_index = -1
 position = Vector2(222, 288)
 
 [node name="arrowTower" parent="." instance=ExtResource("6_0rxxx")]
-position = Vector2(624, 282)
+position = Vector2(272, 140)
 
 [node name="Melee Tower" parent="." instance=ExtResource("8_g55l8")]
-position = Vector2(221, 120)
+position = Vector2(-102, 231)

@@ -34,6 +34,8 @@ func _physics_process(delta: float) -> void:
 		rotate(get_angle_to(target.global_position+attackOffset)+(3.14159265358979/2))
 		#Sets the attack point to a point between you and the target
 		attackPoint = (target.global_position+attackOffset)-global_position
+		#nomralize maintans directon, while setting distance to 1
+		attackPoint.normalized()
 		#Moves the projectile in the direction of the target
 		global_position+=attackPoint*speed*delta
 		
