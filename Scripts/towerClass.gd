@@ -3,7 +3,7 @@ class_name Tower
 @export var attackRange:float = 5
 @export var damage: int =1
 @export var price: int = 10
-@export var attackCD:float=.8
+@export var attackCD:float=2
 @export var projectile:PackedScene
 @export var rangeBox: Area2D
 
@@ -60,7 +60,9 @@ func addToRange(body:Node2D):
 			fireProj()
 		#If it's not the only enemy, attack as normal
 		else:
-			attackTimer.start()
+			#Makes sure the timer isn't currently running
+			if attackTimer.time_left<=0:
+				attackTimer.start()
 		
 #remove the enemy from the array
 func removeFromRange(body:Node2D):

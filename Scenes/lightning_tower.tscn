@@ -221,6 +221,7 @@ radius = 26.6687
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_605ra")
 price = 20
+attackCD = 0.8
 projectile = ExtResource("2_w2f8b")
 rangeBox = NodePath("RangeHitbox")
 
