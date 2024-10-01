@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://chec1wkjibv7c"]
+[gd_scene load_steps=11 format=4 uid="uid://chec1wkjibv7c"]
 
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="1_0ujvt"]
 [ext_resource type="PackedScene" uid="uid://cyp6ucyfa6ypd" path="res://Scenes/turnController.tscn" id="3_obip6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddtvpp1dfpwu3" path="res://Scenes/hud.tscn" id="5_f1485"]
 [ext_resource type="PackedScene" uid="uid://dqkiv2pjew531" path="res://Scenes/wave_controller.tscn" id="5_xwaun"]
 [ext_resource type="PackedScene" uid="uid://sgcyw5tdj5ye" path="res://Scenes/arrow_tower.tscn" id="6_0rxxx"]
+[ext_resource type="PackedScene" uid="uid://c75a2fdwdiis6" path="res://Scenes/lightning_tower.tscn" id="6_4yh5b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6thjx"]
 texture = ExtResource("1_0ujvt")
@@ -1097,16 +1098,13 @@ position = Vector2(96, 336)
 
 [node name="WaveController" parent="." instance=ExtResource("5_xwaun")]
 position = Vector2(-80, -146)
-waveCount = 10
+waveCount = 11
 
 [node name="HUD" parent="." instance=ExtResource("5_f1485")]
 z_index = -1
 
+[node name="lightningTower" parent="." instance=ExtResource("6_4yh5b")]
+position = Vector2(239, 120)
+
 [node name="arrowTower" parent="." instance=ExtResource("6_0rxxx")]
-position = Vector2(133, 106)
-
-[node name="arrowTower2" parent="." instance=ExtResource("6_0rxxx")]
-position = Vector2(252, 102)
-
-[node name="arrowTower3" parent="." instance=ExtResource("6_0rxxx")]
-position = Vector2(367, 121)
+position = Vector2(624, 282)

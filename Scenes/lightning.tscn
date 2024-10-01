@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://87l02pnh8u8x"]
+
+[ext_resource type="Script" path="res://Scripts/lightning.gd" id="1_ucq7g"]
+[ext_resource type="Texture2D" uid="uid://da8pxbjm7wfvj" path="res://Sprites/Tower Defence Towers/Electric Tower/Tower 02 - Level 01 - Projectile.png" id="2_sxjal"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efy4y"]
+atlas = ExtResource("2_sxjal")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvfg8"]
+atlas = ExtResource("2_sxjal")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j87vt"]
+atlas = ExtResource("2_sxjal")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmkn0"]
+atlas = ExtResource("2_sxjal")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsf2a"]
+atlas = ExtResource("2_sxjal")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t30th"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efy4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvfg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j87vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmkn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsf2a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vemms"]
+size = Vector2(20, 26.6667)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsnnl"]
+radius = 26.6687
+
+[node name="Lightning" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ucq7g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 0.785398
+sprite_frames = SubResource("SpriteFrames_t30th")
+autoplay = "default"
+frame_progress = 0.874397
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vemms")
+
+[node name="RangeHitbox" type="Area2D" parent="."]
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeHitbox"]
+shape = SubResource("CircleShape2D_wsnnl")
+
+[connection signal="body_entered" from="RangeHitbox" to="." method="_on_range_hitbox_body_entered"]
+[connection signal="body_exited" from="RangeHitbox" to="." method="_on_range_hitbox_body_exited"]

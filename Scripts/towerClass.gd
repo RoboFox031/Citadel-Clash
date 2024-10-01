@@ -4,7 +4,6 @@ class_name Tower
 @export var damage: int =1
 @export var price: int = 10
 @export var attackCD:float=.8
-@export var fireOffset:Vector2 =Vector2(0,0)
 @export var projectile:PackedScene
 @export var rangeBox: Area2D
 
@@ -51,14 +50,13 @@ func fireProj():
 			instance.target = inRangeEnemies[0].get_parent()
 			instance.startPoint = $Weapon.global_position
 			instance.startRot = $Weapon.rotation
-		
 	
 #Adds the enemy to the array
 func addToRange(body:Node2D):
 	if(body is Enemy):
 		inRangeEnemies.append(body)
 		#Makes it instantly fire if this is the only enemy to enter it
-		if inRangeEnemies[0] == body:
+		if inRangeEnemies[0] == body and attackTimer.is_stopped()==true:
 			fireProj()
 		#If it's not the only enemy, attack as normal
 		else:

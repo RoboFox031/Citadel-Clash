@@ -20,6 +20,8 @@ func _ready() -> void:
 	#Makes it start with the tower position, and rotation
 	global_position=startPoint
 	rotation =startRot
+	speed=((target.get_child(0).SPEED*target.get_child(0).speedMultiplier)/10)+2
+	
 	
 
 
@@ -32,8 +34,6 @@ func _physics_process(delta: float) -> void:
 		rotate(get_angle_to(target.global_position+attackOffset)+(3.14159265358979/2))
 		#Sets the attack point to a point between you and the target
 		attackPoint = (target.global_position+attackOffset)-global_position
-		#normalized makes the point from before into a line with a lenght of 1
-		attackPoint.normalized()
 		#Moves the projectile in the direction of the target
 		global_position+=attackPoint*speed*delta
 		
