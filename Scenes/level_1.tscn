@@ -1099,16 +1099,16 @@ position = Vector2(96, 336)
 
 [node name="WaveController" parent="." instance=ExtResource("5_xwaun")]
 position = Vector2(-80, -146)
-waveCount = 19
+waveCount = 15
 
 [node name="HUD" parent="." instance=ExtResource("5_f1485")]
 z_index = -1
 
 [node name="lightningTower" parent="." instance=ExtResource("6_4yh5b")]
-position = Vector2(222, 288)
+position = Vector2(517, 123)
 
 [node name="arrowTower" parent="." instance=ExtResource("6_0rxxx")]
 position = Vector2(393, 306)
 
 [node name="Melee Tower" parent="." instance=ExtResource("8_g55l8")]
-position = Vector2(495, 132)
+position = Vector2(552, 372)
