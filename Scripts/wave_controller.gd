@@ -75,8 +75,10 @@ func nextWave():
 			await(spawnEnemy(waveCount*2,redBallEnemy))
 			spawnEnemy(waveCount-16,bigSplitEnemy)
 		elif waveCount ==20:
-			gap_timer.wait_time=1
-			spawnEnemy(1,bossSplitEnemy)
+			gap_timer.wait_time=.5
+			await(spawnEnemy(5,redBallEnemy))
+			await spawnEnemy(1,mediumBlocker)
+			spawnEnemy(5,redBallEnemy)
 		elif waveCount <=25:
 			gap_timer.wait_time=1
 			spawnEnemy(1,tinySplitEnemy)

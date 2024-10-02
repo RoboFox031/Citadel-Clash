@@ -436,6 +436,7 @@ animations = [{
 
 [node name="Sheild" type="Area2D"]
 position = Vector2(0, -2)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ku80p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -450,5 +451,5 @@ flip_h = true
 
 [node name="SheildDuration" type="Timer" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="SheildDuration" to="." method="_on_sheild_duration_timeout"]

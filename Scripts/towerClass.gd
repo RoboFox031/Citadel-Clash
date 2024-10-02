@@ -41,7 +41,6 @@ func fireProj():
 		#Double checks in case the enemy died during the animation
 		if inRangeEnemies != []:
 			#Makes Projectile
-			print("bam!")
 			attackTimer.start()
 			#Makes Projectile
 			var instance = projectile.instantiate()

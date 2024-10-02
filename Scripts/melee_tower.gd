@@ -1,6 +1,7 @@
 extends Tower
 
 @onready var attack: AnimatedSprite2D = $Attack
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	super._ready()
@@ -24,11 +25,17 @@ func fireProj():
 			#Makes the attack animation visible and plays the animation
 			attack.visible=true
 			attack.play("Attack")
-			
+			#The animation player makes the hitbox move more smothely with the animation
+			animation_player.play("Attack")
 			await attack.animation_finished
 			#Makes the animation invisible again
 			attack.visible=false
 			#Once the animation is done, it deals damage to all enemies affected
-			for i in inRangeEnemies:
-				i.takeDamage(damage)
+			#for i in inRangeEnemies:
+				#i.takeDamage(damage)
 			
+
+
+func _on_attack_box_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		body.takeDamage(damage)
