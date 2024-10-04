@@ -20,7 +20,7 @@ func _ready() -> void:
 	#Makes it start with the tower position, and rotation
 	global_position=startPoint
 	rotation =startRot
-	speed=((target.get_child(0).SPEED*target.get_child(0).speedMultiplier)/10)+2
+	speed=((target.get_child(0).SPEED*target.get_child(0).speedMultiplier)/12)
 	
 	
 
