@@ -2,15 +2,19 @@ extends Node2D
 class_name Tower
 @export var attackRange:float = 5
 @export var damage: int =1
-@export var price: int = 10
 @export var attackCD:float=2
 @export var projectile:PackedScene
 @export var rangeBox: Area2D
+#This variable is changed by the button to build it
+var price: int = 10
 
 
 #Makes an array of the enemies that are in range
 var inRangeEnemies:Array[CharacterBody2D] = []
 var attackTimer:Timer = Timer.new()
+
+#A building variable, to stop you from building multiple towers at once
+var building:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,11 +22,14 @@ func _ready() -> void:
 	rangeBox.scale = Vector2(attackRange,attackRange)
 	rangeBox.body_entered.connect(addToRange)
 	rangeBox.body_exited.connect(removeFromRange)
+	rangeBox.get_child(0).disabled=true
 	#Sets up the timer
 	add_child(attackTimer)
 	attackTimer.one_shot=true
 	attackTimer.wait_time=attackCD
 	attackTimer.timeout.connect(fireProj)
+	#Makes shadow invisible while building
+	$Shadow.visible=false
 
 	
 
@@ -30,7 +37,21 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 func placeTower():
+	#Charges player cost of tower
+	$"../HUD".addCoins(-price)
+	#Disables building mode
+	building=false
+	#Allows tower to see enemies
+	rangeBox.get_child(0).disabled=false
+	#Adds Shadow
+	$Shadow.visible=true
+
 	pass
+func _physics_process(delta: float) -> void:
+	if building==true:
+		global_position=get_global_mouse_position()
+		if Input.is_action_just_pressed("Click"):
+			placeTower()
 	
 func fireProj():
 	#Makes sure the target is still in range
@@ -67,3 +88,4 @@ func addToRange(body:Node2D):
 func removeFromRange(body:Node2D):
 	if(body is Enemy):
 		inRangeEnemies.erase(body)
+		

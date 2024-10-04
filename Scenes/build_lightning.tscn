@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://b47koc1pkhaxs"]
+
+[ext_resource type="Texture2D" uid="uid://cru1l31vout5r" path="res://Sprites/ButtonBase.png" id="1_pfjcx"]
+[ext_resource type="Texture2D" uid="uid://8f7u1y6irj2e" path="res://Sprites/Tower Defence Towers/Electric Tower/LightningTowerFinal.png" id="2_mwrgg"]
+[ext_resource type="Texture2D" uid="uid://cfdy3nr044fbf" path="res://Sprites/Tower Defence Towers/Electric Tower/Tower 02 - Level 01 - Weapon.png" id="3_tqxx3"]
+[ext_resource type="Texture2D" uid="uid://p0o1jxj3u7xv" path="res://Sprites/Coin.png" id="4_qrol5"]
+
+[node name="BuildLightning" type="Button"]
+offset_right = 264.0
+offset_bottom = 224.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("1_pfjcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(208, 126)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_mwrgg")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 191)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(207.985, 132.394)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_tqxx3")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.3333
+offset_top = 21.2121
+offset_right = 232.333
+offset_bottom = 66.2121
+theme_override_font_sizes/font_size = 25
+text = "Lightning Tower"
+horizontal_alignment = 1
+
+[node name="Tower Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 61.0
+offset_right = 179.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 19
+text = "Shoots Lightning
+Hits Multiple Targets
+Low Damage"
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(50, 168)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_qrol5")
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 152.0
+offset_right = 141.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 25
+text = "x 100"

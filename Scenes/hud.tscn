@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddtvpp1dfpwu3"]
+[gd_scene load_steps=10 format=3 uid="uid://ddtvpp1dfpwu3"]
 
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_18jnv"]
 [ext_resource type="Texture2D" uid="uid://d334ni8rnkjj5" path="res://Sprites/HUDBasev2.png.png" id="1_h0kda"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://p0o1jxj3u7xv" path="res://Sprites/Coin.png" id="3_l57sb"]
 [ext_resource type="Texture2D" uid="uid://bvudcqpd200w2" path="res://Sprites/PlayButton.png" id="5_xxs2c"]
 [ext_resource type="Texture2D" uid="uid://c7frxs5lbbno6" path="res://Sprites/ExitButton.png" id="6_i4w46"]
+[ext_resource type="PackedScene" uid="uid://cmfbxsxnjimcy" path="res://Scenes/build_arrow.tscn" id="7_wpbei"]
+[ext_resource type="PackedScene" uid="uid://c2wqfe8uf0sh6" path="res://Scenes/build_melee.tscn" id="8_l88yk"]
+[ext_resource type="PackedScene" uid="uid://b47koc1pkhaxs" path="res://Scenes/build_lightning.tscn" id="9_r2k33"]
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_18jnv")
@@ -76,4 +79,27 @@ scale = Vector2(0.8, 0.8)
 icon = ExtResource("6_i4w46")
 flat = true
 
+[node name="Tower Build" type="Node" parent="."]
+
+[node name="BuildArrow" parent="." instance=ExtResource("7_wpbei")]
+offset_left = 91.0
+offset_top = 427.0
+offset_right = 355.0
+offset_bottom = 651.0
+
+[node name="BuildMelee" parent="." instance=ExtResource("8_l88yk")]
+offset_left = 315.0
+offset_top = 427.0
+offset_right = 579.0
+offset_bottom = 651.0
+
+[node name="BuildLightning" parent="." instance=ExtResource("9_r2k33")]
+offset_left = 539.0
+offset_top = 427.0
+offset_right = 803.0
+offset_bottom = 651.0
+
 [connection signal="pressed" from="NextWave" to="." method="_on_next_wave_pressed"]
+[connection signal="pressed" from="BuildArrow" to="." method="placeArrow"]
+[connection signal="pressed" from="BuildMelee" to="." method="placeMelee"]
+[connection signal="pressed" from="BuildLightning" to="." method="placeLightning"]
