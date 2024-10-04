@@ -100,7 +100,6 @@ offset = Vector2(0, -6)
 [node name="PlacementHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementHitbox"]
-visible = false
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_th8ls")
 

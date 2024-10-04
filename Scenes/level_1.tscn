@@ -1100,3 +1100,4 @@ waveCount = 15
 
 [node name="HUD" parent="." instance=ExtResource("5_f1485")]
 z_index = -1
+startingCash = 100000
