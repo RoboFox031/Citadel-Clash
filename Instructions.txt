@@ -1,0 +1,1 @@
+You play this game by spending coins to buy towers. When buying a tower, it will turn red when in an invalid placing location.

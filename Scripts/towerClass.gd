@@ -37,9 +37,6 @@ func _ready() -> void:
 	#Connects the placement hitbox to a signal
 	placeBox.area_entered.connect(invalidPlace)
 	placeBox.area_exited.connect(validPlace)
-	
-	print(z_as_relative)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
