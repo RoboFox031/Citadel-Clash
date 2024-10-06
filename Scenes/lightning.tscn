@@ -55,6 +55,8 @@ radius = 26.6687
 [node name="Lightning" type="Area2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ucq7g")
+chainAmount = 10
+speed = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 0.785398

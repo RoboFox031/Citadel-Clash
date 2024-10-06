@@ -18,9 +18,7 @@ func fireProj():
 		$Weapon.play("Idle")
 		#Double checks in case the enemy died during the animation
 		if inRangeEnemies != []:
-			#Makes Projectile
-			print("bam!")
-			#Makes Projectile
+			#Attacks
 			attackTimer.start()
 			#Makes the attack animation visible and plays the animation
 			attack.visible=true

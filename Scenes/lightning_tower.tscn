@@ -212,17 +212,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oim11"]
-size = Vector2(64, 98)
+size = Vector2(64, 66.6667)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nsdwu"]
 radius = 26.6687
 
-[node name="lightningTower" type="Node2D" node_paths=PackedStringArray("rangeBox")]
+[node name="lightningTower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox")]
+z_as_relative = false
+y_sort_enabled = true
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_605ra")
 attackCD = 0.8
 projectile = ExtResource("2_w2f8b")
 rangeBox = NodePath("RangeHitbox")
+placeBox = NodePath("PlacementHitbox")
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = ExtResource("2_4cvso")
@@ -237,19 +240,22 @@ region_enabled = true
 region_rect = Rect2(256, 352, 32, 32)
 
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_ddtiw")
 animation = &"PowerUp"
 autoplay = "Idle"
 
 [node name="PlacementHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementHitbox"]
-visible = false
-position = Vector2(0, 15)
+position = Vector2(0, 21.6667)
 shape = SubResource("RectangleShape2D_oim11")
 
 [node name="RangeHitbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 scale = Vector2(3, 3)
 

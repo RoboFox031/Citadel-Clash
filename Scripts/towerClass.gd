@@ -5,6 +5,8 @@ class_name Tower
 @export var attackCD:float=2
 @export var projectile:PackedScene
 @export var rangeBox: Area2D
+@export var placeBox: Area2D
+
 #This variable is changed by the button to build it
 var price: int = 10
 
@@ -16,6 +18,8 @@ var attackTimer:Timer = Timer.new()
 #A building variable, to stop you from building multiple towers at once
 var building:bool = true
 
+#A variable that stores the number of things the tower is touching
+var coliding:int =0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Sets the range to the attack range varable
@@ -30,23 +34,29 @@ func _ready() -> void:
 	attackTimer.timeout.connect(fireProj)
 	#Makes shadow invisible while building
 	$Shadow.visible=false
-
+	#Connects the placement hitbox to a signal
+	placeBox.area_entered.connect(invalidPlace)
+	placeBox.area_exited.connect(validPlace)
 	
+	print(z_as_relative)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 func placeTower():
-	#Charges player cost of tower
-	$"../HUD".addCoins(-price)
-	#Disables building mode
-	building=false
-	#Allows tower to see enemies
-	rangeBox.get_child(0).disabled=false
-	#Adds Shadow
-	$Shadow.visible=true
+	if coliding == 0:
+		#Charges player cost of tower
+		$"../HUD".addCoins(-price)
+		#Disables building mode
+		building=false
+		#Allows tower to see enemies
+		rangeBox.get_child(0).disabled=false
+		#Adds Shadow
+		$Shadow.visible=true
+	else:
+		queue_free()
 
-	pass
+
 func _physics_process(delta: float) -> void:
 	if building==true:
 		global_position=get_global_mouse_position()
@@ -89,3 +99,14 @@ func removeFromRange(body:Node2D):
 	if(body is Enemy):
 		inRangeEnemies.erase(body)
 		
+#Changes the placeable varable based on if the tower 
+#is in a placeable psotion
+func invalidPlace(area):
+		coliding+=1
+		#Makes tower red
+		modulate.r=50
+
+func validPlace(area):
+		coliding-=1
+		#Makes the tower not red
+		modulate.r=1

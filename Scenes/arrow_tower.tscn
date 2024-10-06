@@ -62,12 +62,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th8ls"]
-size = Vector2(64, 98)
+size = Vector2(64, 66.6667)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2iw34"]
 radius = 26.6687
 
-[node name="arrowTower" type="Node2D" node_paths=PackedStringArray("rangeBox")]
+[node name="arrowTower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox")]
+z_as_relative = false
+y_sort_enabled = true
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_xmyed")
 attackRange = 8.0
@@ -75,6 +77,7 @@ damage = 3
 attackCD = 1.0
 projectile = ExtResource("2_cgwyn")
 rangeBox = NodePath("RangeHitbox")
+placeBox = NodePath("PlacementHitbox")
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = ExtResource("2_rkvq2")
@@ -89,6 +92,7 @@ region_enabled = true
 region_rect = Rect2(256, 352, 32, 32)
 
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_na44h")
 animation = &"Attack"
@@ -98,12 +102,15 @@ frame_progress = 1.0
 offset = Vector2(0, -6)
 
 [node name="PlacementHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementHitbox"]
-position = Vector2(0, 15)
+position = Vector2(0, 31.6667)
 shape = SubResource("RectangleShape2D_th8ls")
 
 [node name="RangeHitbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 scale = Vector2(5, 5)
 

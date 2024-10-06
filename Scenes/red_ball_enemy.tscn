@@ -84,6 +84,7 @@ animations = [{
 script = ExtResource("1_37fy2")
 health = 10
 damage = 2
+worth = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 modulate = Color(0.897002, 0, 0.307819, 1)

@@ -17,7 +17,6 @@ var lightningTower= preload("res://Scenes/lightning_tower.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	print(get_parent())
 	#Sets starting cash and prices of all towers
 	addCoins(startingCash)
 	$"BuildArrow/Price".text=str("x ",arrowCost)
@@ -47,13 +46,13 @@ func takeDamage(amount):
 # and sets that tower to buidling mode
 func placeArrow():
 	if wealth>=arrowCost:
-		print(get_tree())
 		var instance = arrowTower.instantiate()
 		get_parent().add_child(instance)
 		instance.building=true
 		instance.price = arrowCost
 	pass
 func placeMelee():
+	
 	if wealth>=meleeCost:
 		var instance = meleeTower.instantiate()
 		get_parent().add_child(instance)

@@ -122,7 +122,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evsuy"]
-size = Vector2(64, 98)
+size = Vector2(64, 65)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_foma4"]
 radius = 26.6687
@@ -191,11 +191,14 @@ _data = {
 "RESET": SubResource("Animation_ldf2o")
 }
 
-[node name="Melee Tower" type="Node2D" node_paths=PackedStringArray("rangeBox")]
+[node name="Melee Tower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox")]
+z_as_relative = false
+y_sort_enabled = true
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_cymrx")
 damage = 10
 rangeBox = NodePath("RangeHitbox")
+placeBox = NodePath("PlacementHitbox")
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = ExtResource("1_73562")
@@ -210,15 +213,17 @@ region_enabled = true
 region_rect = Rect2(256, 352, 32, 32)
 
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -21)
 sprite_frames = SubResource("SpriteFrames_mirj8")
 animation = &"Attack"
 autoplay = "Idle"
-frame = 7
-frame_progress = 1.0
+frame = 2
+frame_progress = 0.0244986
 
 [node name="Attack" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = 2
 position = Vector2(0, -16.6667)
 sprite_frames = SubResource("SpriteFrames_861f7")
 animation = &"Attack"
@@ -226,13 +231,15 @@ frame = 4
 frame_progress = 1.0
 
 [node name="PlacementHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementHitbox"]
-visible = false
-position = Vector2(0, 15)
+position = Vector2(0, 22.5)
 shape = SubResource("RectangleShape2D_evsuy")
 
 [node name="RangeHitbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 0.333344)
 scale = Vector2(4.2, 4.2)
 
