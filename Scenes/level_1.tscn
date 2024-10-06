@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddtvpp1dfpwu3" path="res://Scenes/hud.tscn" id="5_f1485"]
 [ext_resource type="PackedScene" uid="uid://dqkiv2pjew531" path="res://Scenes/wave_controller.tscn" id="5_xwaun"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6thjx"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tv5mc"]
 texture = ExtResource("1_0ujvt")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -1033,7 +1033,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_htfnq"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_6thjx")
+sources/0 = SubResource("TileSetAtlasSource_tv5mc")
 
 [sub_resource type="Curve2D" id="Curve2D_uug4a"]
 _data = {

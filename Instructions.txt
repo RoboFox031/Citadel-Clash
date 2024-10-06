@@ -1,1 +1,1 @@
-You play this game by spending coins to buy towers. When buying a tower, it will turn red when in an invalid placing location.
+You play this game by spending coins to buy towers. When buying a tower, it will turn red when in an invalid placing location. Clicking on a tower, reveals its range. Clicking again on it, hides this. Enemies being circled by a fireball are shielded, and the shield needs to be destroyed before they can be hurt.
