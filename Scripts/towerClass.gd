@@ -6,6 +6,7 @@ class_name Tower
 @export var projectile:PackedScene
 @export var rangeBox: Area2D
 @export var placeBox: Area2D
+@export var rangeButton: Button
 
 #This variable is changed by the button to build it
 var price: int = 10
@@ -37,6 +38,9 @@ func _ready() -> void:
 	#Connects the placement hitbox to a signal
 	placeBox.area_entered.connect(invalidPlace)
 	placeBox.area_exited.connect(validPlace)
+	#Connects the Rangebutton to the rangeVisible function
+	rangeButton.toggled.connect(rangeVisible)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -50,6 +54,9 @@ func placeTower():
 		rangeBox.get_child(0).disabled=false
 		#Adds Shadow
 		$Shadow.visible=true
+		#Removes range preview/enables button
+		rangeBox.visible=false
+		rangeButton.disabled=false
 	else:
 		queue_free()
 
@@ -107,3 +114,6 @@ func validPlace(area):
 		coliding-=1
 		#Makes the tower not red
 		modulate.r=1
+func rangeVisible(toggled_on):
+	rangeBox.visible=toggled_on
+	

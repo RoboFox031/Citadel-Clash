@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://1lmksnrrxuna"]
+[gd_scene load_steps=28 format=3 uid="uid://cdgjp24he12fy"]
 
 [ext_resource type="Texture2D" uid="uid://bfj6oval8lpp7" path="res://Sprites/Tower Defence Towers/Melee Tower/MeleeTowerFinal.png" id="1_73562"]
 [ext_resource type="Script" path="res://Scripts/melee_tower.gd" id="1_cymrx"]
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="2_ko2q0"]
 [ext_resource type="Texture2D" uid="uid://ckqddr4y8pty3" path="res://Sprites/Tower Defence Towers/Melee Tower/Tower 08 - Level 01 - Weapon.png" id="3_8tqhg"]
 [ext_resource type="Texture2D" uid="uid://b0ynfjkoev3pk" path="res://Sprites/Tower Defence Towers/Melee Tower/Tower 08 - Level 01 - Projectile.png" id="4_6kpa4"]
+[ext_resource type="Texture2D" uid="uid://dbbdqwahsvc3h" path="res://Sprites/TowerAimer.png" id="6_yax5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlgvo"]
 atlas = ExtResource("3_8tqhg")
@@ -191,14 +192,17 @@ _data = {
 "RESET": SubResource("Animation_ldf2o")
 }
 
-[node name="Melee Tower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox")]
+[node name="Melee Tower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox", "rangeButton")]
 z_as_relative = false
 y_sort_enabled = true
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_cymrx")
-damage = 10
+attackRange = 4.0
+damage = 8
+attackCD = 1.5
 rangeBox = NodePath("RangeHitbox")
 placeBox = NodePath("PlacementHitbox")
+rangeButton = NodePath("rangeButton")
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = ExtResource("1_73562")
@@ -239,16 +243,21 @@ position = Vector2(0, 22.5)
 shape = SubResource("RectangleShape2D_evsuy")
 
 [node name="RangeHitbox" type="Area2D" parent="."]
-visible = false
-position = Vector2(0, 0.333344)
+position = Vector2(0, 17)
 scale = Vector2(4.2, 4.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeHitbox"]
 position = Vector2(0, -4.04762)
 shape = SubResource("CircleShape2D_foma4")
 
+[node name="RangeVisible" type="Sprite2D" parent="RangeHitbox"]
+modulate = Color(1, 1, 1, 0.352941)
+position = Vector2(0, -3.68254)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("6_yax5w")
+
 [node name="AttackBox" type="Area2D" parent="."]
-position = Vector2(0, -16.6667)
+position = Vector2(0, -3.52859e-05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 shape = SubResource("CircleShape2D_j3h6w")
@@ -259,5 +268,14 @@ root_node = NodePath("../AttackBox/CollisionShape2D")
 libraries = {
 "": SubResource("AnimationLibrary_s07kf")
 }
+
+[node name="rangeButton" type="Button" parent="."]
+offset_left = -32.0
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = 54.0
+disabled = true
+toggle_mode = true
+flat = true
 
 [connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]

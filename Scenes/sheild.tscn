@@ -435,6 +435,7 @@ animations = [{
 }]
 
 [node name="Sheild" type="Area2D"]
+z_index = 6
 position = Vector2(0, -2)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ku80p")

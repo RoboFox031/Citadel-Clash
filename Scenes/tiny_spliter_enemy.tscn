@@ -99,8 +99,8 @@ scale = Vector2(0.9, 0.9)
 modulate = Color(0.99765, 0, 1, 1)
 script = ExtResource("1_dbr4r")
 health = 3
-speedMultiplier = 2.0
-damage = 2
+speedMultiplier = 2.2
+damage = 6
 worth = 1
 type = 1
 

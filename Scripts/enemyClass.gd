@@ -59,7 +59,7 @@ func split():
 		get_parent().queue_free()
 #The function that allows for blockers to block
 func block():
-	if get_parent().progress_ratio<.75:
+	if get_parent().progress_ratio<.95:
 		var instance = sheild.instantiate()
 		add_child(instance)
 		instance.duriation = supportLength
@@ -67,8 +67,8 @@ func block():
 #Checks if eveything has completed, or is dead
 func waveCheck():
 	if(get_parent().get_parent().get_child_count()<=1):
-			#gives 5 coins for finishing the wave
-			$"../../../HUD".addCoins(2)
+			#gives coin bonus for finishing the wave
+			$"../../../HUD".addCoins(4)
 func takeDamage (amount:int):
 	health-=amount
 	#lose healt

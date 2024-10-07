@@ -99,11 +99,12 @@ scale = Vector2(1.1, 1.1)
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(0, -10)
 script = ExtResource("1_y58qb")
-health = 15
-damage = 8
-worth = 20
+health = 25
+speedMultiplier = 1.1
+damage = 20
+worth = 4
 type = 1
-splitAmount = 2
+splitAmount = 6
 splitInto = ExtResource("2_gi2tv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]

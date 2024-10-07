@@ -14,7 +14,7 @@ var mediumSplitEnemy= preload("res://Scenes/medium_spliter_enemy.tscn")
 var bigSplitEnemy = preload("res://Scenes/big_spliter_enemy.tscn")
 var bossSplitEnemy = preload("res://Scenes/boss_spliter.tscn")
 #Blocker Enemies:
-var mediumBlocker = preload("res://Scenes/blocker.tscn")
+var blocker = preload("res://Scenes/blocker.tscn")
 
 #Exports the wavecount for trouble shooting
 @export var waveCount:int = 0
@@ -51,13 +51,16 @@ func nextWave():
 		#Controls amount, types and frequency 
 		#of enemies based on wave number
 		#Folowing statements define each grouping of waves
-		if waveCount<=5:
+		if waveCount<=2:
 			gap_timer.wait_time=1
 			spawnEnemy(waveCount*2,orangeBallEnemy)
+		elif waveCount<=5:
+			gap_timer.wait_time=.6
+			spawnEnemy(waveCount*2,tinySplitEnemy)
 		elif waveCount<=10:
 			gap_timer.wait_time=1
-			await spawnEnemy(waveCount,redBallEnemy)
-			await spawnEnemy(waveCount,orangeBallEnemy)
+			await spawnEnemy(waveCount-5,redBallEnemy)
+			await spawnEnemy(waveCount*2,orangeBallEnemy)
 			spawnEnemy(waveCount-7,tinySplitEnemy)
 		elif waveCount <=15:
 			gap_timer.wait_time=.8
@@ -65,23 +68,71 @@ func nextWave():
 			await(spawnEnemy(waveCount*1.5,redBallEnemy))
 			spawnEnemy(waveCount-10,mediumSplitEnemy)
 		elif waveCount ==16:
-			gap_timer.wait_time =.1
-			spawnEnemy(100,orangeBallEnemy)
-		elif waveCount <=19:
+			gap_timer.wait_time =.08
+			spawnEnemy(150,tinySplitEnemy)
+		elif waveCount <=20:
 			gap_timer.wait_time=.8
 			await(spawnEnemy(waveCount*2,redBallEnemy))
 			spawnEnemy(waveCount-16,bigSplitEnemy)
-		elif waveCount ==20:
+		elif waveCount <=29:
 			gap_timer.wait_time=.5
-			await(spawnEnemy(5,redBallEnemy))
-			await spawnEnemy(1,mediumBlocker)
-			spawnEnemy(5,redBallEnemy)
-		elif waveCount <=25:
-			gap_timer.wait_time=.8
-			spawnEnemy(1,tinySplitEnemy)
+			await(spawnEnemy(waveCount/4,redBallEnemy))
+			await spawnEnemy(waveCount/6,blocker)
+			spawnEnemy(waveCount/4,redBallEnemy)
 		elif waveCount ==30:
 			gap_timer.wait_time=.8
 			spawnEnemy(1,bossBall)
+		elif waveCount <=39:
+			gap_timer.wait_time=.6
+			await spawnEnemy(waveCount/8,bigSplitEnemy)
+			spawnEnemy(waveCount,redBallEnemy)
+		elif waveCount ==40:
+			spawnEnemy(1,bossSplitEnemy)
+		elif waveCount <=49:
+			gap_timer.wait_time=.7
+			await spawnEnemy(waveCount/8,redBallEnemy)
+			await spawnEnemy(waveCount,tinySplitEnemy)
+			await spawnEnemy(waveCount/8,mediumSplitEnemy)
+		#Every wave above 50 picks one of the 4 random senecrios to do
+		#Until the player looses
 		else:
-			print("no more waves!")
+			var choice= randf()
+			if choice<=.25:
+				#LOTS OF ENEMIES
+				gap_timer.wait_time=.4
+				for i in waveCount:
+					#Repeats the flowing code for 1/5 of the wavecount
+					if i%5==0:
+						await spawnEnemy(waveCount/10,orangeBallEnemy)
+						await spawnEnemy(2,blocker)
+						spawnEnemy(waveCount/10,orangeBallEnemy)
+				
+			elif choice<=.5:
+				#Strong enemies
+				gap_timer.wait_time=1.2
+				for i in waveCount:
+				#Repeats the flowing code for 1/12 of the wavecount
+					if i%12==0:
+						await spawnEnemy(1,bossBall)
+						spawnEnemy(1,bossSplitEnemy)
+			elif choice<=.75:
+				#Spliters with sheilds
+				gap_timer.wait_time=.8
+				for i in waveCount:
+				#Repeats the flowing code for 1/10 of the wavecount
+					if i%10==0:
+						await spawnEnemy(waveCount/20,bigSplitEnemy)
+						await spawnEnemy(1,blocker)
+						await spawnEnemy(waveCount/20,bigSplitEnemy)
+						await spawnEnemy(1,blocker)
+						spawnEnemy(waveCount/5,mediumSplitEnemy)
+			else:
+				#blocker swarm
+				gap_timer.wait_time=.6
+				for i in waveCount:
+				#Repeats the flowing code for 1/10 of the wavecount
+					if i%5==0:
+						await spawnEnemy(waveCount/20,blocker)
+						spawnEnemy(waveCount/20,mediumSplitEnemy)
+				pass
 		pass
