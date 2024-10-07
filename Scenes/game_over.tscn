@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://cpm5akgksgcgq"]
 
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="1_kxo04"]
-[ext_resource type="Script" path="res://Scenes/play_again.gd" id="3_irkoc"]
+[ext_resource type="Script" path="res://Scripts/play_again.gd" id="3_irkoc"]
 [ext_resource type="PackedScene" uid="uid://cyp6ucyfa6ypd" path="res://Scenes/turnController.tscn" id="3_sgonu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oti8r"]

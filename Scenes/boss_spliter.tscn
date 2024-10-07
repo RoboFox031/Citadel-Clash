@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://bs3l1fvteo3mf"]
 
 [ext_resource type="Script" path="res://Scripts/enemyClass.gd" id="1_xao41"]
+[ext_resource type="PackedScene" uid="uid://bflvyd3ubv3fa" path="res://Scenes/big_spliter_enemy.tscn" id="2_6l03e"]
 [ext_resource type="Texture2D" uid="uid://dyoicxscrtk1t" path="res://Sprites/enemySheet.png" id="2_cl5e1"]
-[ext_resource type="PackedScene" uid="uid://bevrq8rfu1vb0" path="res://Scenes/medium_spliter_enemy.tscn" id="2_pmwgw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1str"]
 atlas = ExtResource("2_cl5e1")
@@ -98,13 +98,13 @@ scale = Vector2(2, 2)
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 script = ExtResource("1_xao41")
-health = 30
-speedMultiplier = 0.5
-damage = 20
+health = 50
+speedMultiplier = 0.9
+damage = 25
 worth = 5
 type = 1
-splitAmount = 12
-splitInto = ExtResource("2_pmwgw")
+splitAmount = 8
+splitInto = ExtResource("2_6l03e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 modulate = Color(1, 0.18184, 0.0206446, 1)

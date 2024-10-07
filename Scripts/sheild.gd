@@ -11,7 +11,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if get_parent().get_parent().progress_ratio>.85:
+	#Deletes sheild if blocker gets too far
+	if get_parent().get_parent().progress_ratio>.95:
 		queue_free()
 	
 

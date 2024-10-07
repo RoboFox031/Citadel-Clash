@@ -275,6 +275,7 @@ offset_top = -10.0
 offset_right = 32.0
 offset_bottom = 54.0
 disabled = true
+toggle_mode = true
 flat = true
 
 [connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]

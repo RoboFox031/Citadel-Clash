@@ -98,10 +98,10 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(0, -10)
 script = ExtResource("1_ninw7")
-health = 10
+health = 20
 speedMultiplier = 1.1
-damage = 4
-worth = 3
+damage = 16
+worth = 2
 type = 1
 splitAmount = 5
 splitInto = ExtResource("2_llbln")

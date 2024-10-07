@@ -115,6 +115,5 @@ func validPlace(area):
 		#Makes the tower not red
 		modulate.r=1
 func rangeVisible(toggled_on):
-	print("uo")
 	rangeBox.visible=toggled_on
 	

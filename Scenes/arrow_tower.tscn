@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b0uh36kjn6ngi"]
 
 [ext_resource type="Script" path="res://Scripts/arrow_tower.gd" id="1_xmyed"]
-[ext_resource type="PackedScene" path="res://Scenes/arrow.tscn" id="2_cgwyn"]
+[ext_resource type="PackedScene" uid="uid://dwpigmjiw1288" path="res://Scenes/arrow.tscn" id="2_cgwyn"]
 [ext_resource type="Texture2D" uid="uid://clvndfpvj1a7l" path="res://Sprites/Tower Defence Towers/Arrow Tower/arrowTowerFinal.png" id="2_rkvq2"]
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="3_b6dg6"]
 [ext_resource type="Texture2D" uid="uid://byxqik6omqs04" path="res://Sprites/Tower Defence Towers/Arrow Tower/Tower 01 - Level 01 - Weapon.png" id="4_8otco"]
