@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2wqfe8uf0sh6"]
+
+[ext_resource type="Texture2D" uid="uid://cru1l31vout5r" path="res://Sprites/ButtonBase.png" id="1_frox0"]
+[ext_resource type="Texture2D" uid="uid://bfj6oval8lpp7" path="res://Sprites/Tower Defence Towers/Melee Tower/MeleeTowerFinal.png" id="2_lmv25"]
+[ext_resource type="Texture2D" uid="uid://ckqddr4y8pty3" path="res://Sprites/Tower Defence Towers/Melee Tower/Tower 08 - Level 01 - Weapon.png" id="3_rbag1"]
+[ext_resource type="Texture2D" uid="uid://p0o1jxj3u7xv" path="res://Sprites/Coin.png" id="4_7a4pf"]
+
+[node name="BuildMelee" type="Button"]
+offset_right = 264.0
+offset_bottom = 224.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("1_frox0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(207.6, 86.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_lmv25")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 192)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(207.6, 102.709)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_rbag1")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.3333
+offset_top = 21.2121
+offset_right = 232.333
+offset_bottom = 66.2121
+theme_override_font_sizes/font_size = 32
+text = "Magic Tower"
+horizontal_alignment = 1
+
+[node name="Tower Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 61.0
+offset_right = 157.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 19
+text = "Blasts in a Circle
+High Damage
+Ignores Sheilds
+"
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(50, 172)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_7a4pf")
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 156.0
+offset_right = 127.0
+offset_bottom = 191.0
+theme_override_font_sizes/font_size = 25
+text = "x 60"

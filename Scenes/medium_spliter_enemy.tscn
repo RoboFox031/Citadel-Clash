@@ -101,7 +101,7 @@ script = ExtResource("1_ninw7")
 health = 10
 speedMultiplier = 1.1
 damage = 4
-worth = 12
+worth = 3
 type = 1
 splitAmount = 5
 splitInto = ExtResource("2_llbln")
@@ -114,5 +114,4 @@ autoplay = "Down"
 frame_progress = 0.229066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-visible = false
 shape = SubResource("RectangleShape2D_07qe6")

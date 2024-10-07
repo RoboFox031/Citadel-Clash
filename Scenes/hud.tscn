@@ -1,14 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddtvpp1dfpwu3"]
+[gd_scene load_steps=9 format=3 uid="uid://ddtvpp1dfpwu3"]
 
-[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_18jnv"]
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_18jnv"]
 [ext_resource type="Texture2D" uid="uid://d334ni8rnkjj5" path="res://Sprites/HUDBasev2.png.png" id="1_h0kda"]
 [ext_resource type="Texture2D" uid="uid://c8qoum1eyixom" path="res://Sprites/heart.png" id="2_abjfp"]
 [ext_resource type="Texture2D" uid="uid://p0o1jxj3u7xv" path="res://Sprites/Coin.png" id="3_l57sb"]
 [ext_resource type="Texture2D" uid="uid://bvudcqpd200w2" path="res://Sprites/PlayButton.png" id="5_xxs2c"]
-[ext_resource type="Texture2D" uid="uid://c7frxs5lbbno6" path="res://Sprites/ExitButton.png" id="6_i4w46"]
+[ext_resource type="PackedScene" path="res://Scenes/build_arrow.tscn" id="7_wpbei"]
+[ext_resource type="PackedScene" path="res://Scenes/build_melee.tscn" id="8_l88yk"]
+[ext_resource type="PackedScene" path="res://Scenes/build_lightning.tscn" id="9_r2k33"]
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_18jnv")
+startingCash = 55
+arrowCost = 45
+meleeCost = 120
+lightningCost = 300
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(450, 275)
@@ -46,6 +52,7 @@ offset_top = 438.0
 offset_right = 894.0
 offset_bottom = 454.0
 value = 100.0
+allow_lesser = true
 show_percentage = false
 
 [node name="Label" type="Label" parent="ProgressBar"]
@@ -67,13 +74,45 @@ scale = Vector2(0.8, 0.8)
 icon = ExtResource("5_xxs2c")
 flat = true
 
-[node name="Quit?" type="Button" parent="."]
-offset_left = 851.0
-offset_top = 501.0
-offset_right = 899.0
-offset_bottom = 549.0
-scale = Vector2(0.8, 0.8)
-icon = ExtResource("6_i4w46")
-flat = true
+[node name="Tower Build" type="Node" parent="."]
+
+[node name="BuildArrow" parent="." instance=ExtResource("7_wpbei")]
+offset_left = 91.0
+offset_top = 427.0
+offset_right = 355.0
+offset_bottom = 651.0
+
+[node name="BuildMelee" parent="." instance=ExtResource("8_l88yk")]
+offset_left = 315.0
+offset_top = 427.0
+offset_right = 579.0
+offset_bottom = 651.0
+
+[node name="BuildLightning" parent="." instance=ExtResource("9_r2k33")]
+offset_left = 539.0
+offset_top = 427.0
+offset_right = 803.0
+offset_bottom = 651.0
+
+[node name="waveCount" type="Label" parent="."]
+offset_left = 835.0
+offset_top = 509.0
+offset_right = 875.0
+offset_bottom = 532.0
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="waveCountLabel" type="Label" parent="."]
+offset_left = 811.0
+offset_top = 500.0
+offset_right = 898.0
+offset_bottom = 523.0
+theme_override_font_sizes/font_size = 10
+text = "Current Wave:"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="NextWave" to="." method="_on_next_wave_pressed"]
+[connection signal="pressed" from="BuildArrow" to="." method="placeArrow"]
+[connection signal="pressed" from="BuildMelee" to="." method="placeMelee"]
+[connection signal="pressed" from="BuildLightning" to="." method="placeLightning"]

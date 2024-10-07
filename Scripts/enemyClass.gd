@@ -30,7 +30,8 @@ func _ready() -> void:
 	#Makes them not rotate on the curves
 	get_parent().rotates=false
 	get_parent().rotation=0
-	
+	#Makes all enemies have y sort
+	y_sort_enabled=true
 	if type==enemyType.Blocker:
 		blockTimer.wait_time = supportFrequency+ randf_range(0,1.5)
 		blockTimer.timeout.connect(block)
@@ -53,7 +54,7 @@ func split():
 			var spawnOffset = randf_range(20,25)
 			if parentProgress-abs((i+1)*spawnOffset)>0:
 				var instance = splitInto.instantiate()
-				get_parent().get_parent().add_child(instance)
+				get_parent().get_parent().add_child.call_deferred(instance)
 				instance.progress = parentProgress-(i+1)*spawnOffset
 		get_parent().queue_free()
 #The function that allows for blockers to block
@@ -66,12 +67,10 @@ func block():
 #Checks if eveything has completed, or is dead
 func waveCheck():
 	if(get_parent().get_parent().get_child_count()<=1):
-			print("All Enemies Defeated")
-			#gives 10 coins for finishing the wave
-			$"../../../HUD".addCoins(10)
+			#gives 5 coins for finishing the wave
+			$"../../../HUD".addCoins(2)
 func takeDamage (amount:int):
 	health-=amount
-	print(health)
 	#lose healt
 	if health<=0:
 		#Adds coins on enemy death
@@ -83,11 +82,9 @@ func takeDamage (amount:int):
 			else:
 				#Deletes the last splitter in chain (tiny one)
 				get_parent().queue_free()
-				print("be gone!")
 				waveCheck()
 				
 		else:
 			#deletes enemies, when they die
 			get_parent().queue_free()
-			print("be gone!")
 			waveCheck()

@@ -1,7 +1,7 @@
 extends Area2D
 @onready var sheild_duration: Timer = $SheildDuration
 var duriation = 5
-
+var projCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if get_parent().get_parent().progress_ratio>.85:
 		queue_free()
 	
@@ -20,13 +20,11 @@ func _on_sheild_duration_timeout() -> void:
 	get_parent().blockTimer.start()
 	queue_free()
 
-
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_entered(area: Area2D) -> void:
 	#Deletes any projectiles in the sheild
-	#if body is projectile:
-	#	var projCount+=body.damage
-	#	body.queue_free()
-	#Adds a way to delete sheild, if it's shot enoguh
-	#	if projCount >=50:
-	#	_on_sheild_duration_timeout()
-	pass # Replace with function body.
+	if area is Projectile:
+		projCount+=area.damage
+		area.queue_free()
+		#Adds a way to delete sheild, if it's shot enoguh
+		if projCount >=50:
+			_on_sheild_duration_timeout()

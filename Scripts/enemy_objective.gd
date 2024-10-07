@@ -7,16 +7,28 @@ func _on_body_entered(body: Node2D) -> void:
 	if(body.name == "Enemy"):
 		#life losing
 		hud.takeDamage(body.damage)
-		
-		body.get_parent().queue_free()
 		#deletes the enemy from the scene
-		print("Enemy has made it!")
-		print(main_path.get_child_count())
+		body.get_parent().queue_free()
+		#Ends the game if you end the wave with <= 0 health
+		if hud.health<= 0:
+			#Deletes all the enemies on the path, to avoid errors about 
+			#removing children during physics callbacks
+			for i in get_parent().get_child_count():
+				#Makes sure to not delete the enemy objective
+				if i <7:
+					get_parent().get_child(i).call_deferred("queue_free")
+			$EndDelay.start()
+		
+		
 		#For whatever reason, it deletes the enemy after the if,
 		#so instead of adding delay, it just chcks for <= 1 enemy
 		if(main_path.get_child_count()<=1):
-			print("All Enemies Defeated")
-			#gives 10 coins for finishing the wave
-			hud.addCoins(10)
+			#gives the amount of coins for winning a wave
+			body.waveCheck()
+			
 
 		
+
+#Takes you to the game over screen once the timer runs out
+func _on_end_delay_timeout() -> void:
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
