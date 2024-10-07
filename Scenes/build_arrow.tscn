@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmfbxsxnjimcy"]
+[gd_scene load_steps=5 format=3 uid="uid://d36dcw8d5xp7m"]
 
 [ext_resource type="Texture2D" uid="uid://cru1l31vout5r" path="res://Sprites/ButtonBase.png" id="1_s0xci"]
 [ext_resource type="Texture2D" uid="uid://clvndfpvj1a7l" path="res://Sprites/Tower Defence Towers/Arrow Tower/arrowTowerFinal.png" id="2_q02qp"]
@@ -43,7 +43,7 @@ offset_right = 157.0
 offset_bottom = 170.0
 theme_override_font_sizes/font_size = 19
 text = "Shoots arrows
-Decent Range
+Far Range
 Decent Damage"
 
 [node name="Coin" type="Sprite2D" parent="."]

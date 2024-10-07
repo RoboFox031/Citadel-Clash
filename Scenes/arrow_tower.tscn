@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://sgcyw5tdj5ye"]
+[gd_scene load_steps=16 format=3 uid="uid://b0uh36kjn6ngi"]
 
 [ext_resource type="Script" path="res://Scripts/arrow_tower.gd" id="1_xmyed"]
-[ext_resource type="PackedScene" uid="uid://ditg0goum4xp" path="res://Scenes/arrow.tscn" id="2_cgwyn"]
+[ext_resource type="PackedScene" path="res://Scenes/arrow.tscn" id="2_cgwyn"]
 [ext_resource type="Texture2D" uid="uid://clvndfpvj1a7l" path="res://Sprites/Tower Defence Towers/Arrow Tower/arrowTowerFinal.png" id="2_rkvq2"]
 [ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="3_b6dg6"]
 [ext_resource type="Texture2D" uid="uid://byxqik6omqs04" path="res://Sprites/Tower Defence Towers/Arrow Tower/Tower 01 - Level 01 - Weapon.png" id="4_8otco"]
+[ext_resource type="Texture2D" uid="uid://dbbdqwahsvc3h" path="res://Sprites/TowerAimer.png" id="6_2x3lu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aakuh"]
 atlas = ExtResource("4_8otco")
@@ -67,7 +68,7 @@ size = Vector2(64, 66.6667)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2iw34"]
 radius = 26.6687
 
-[node name="arrowTower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox")]
+[node name="arrowTower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox", "rangeButton")]
 z_as_relative = false
 y_sort_enabled = true
 scale = Vector2(0.6, 0.6)
@@ -78,6 +79,7 @@ attackCD = 1.0
 projectile = ExtResource("2_cgwyn")
 rangeBox = NodePath("RangeHitbox")
 placeBox = NodePath("PlacementHitbox")
+rangeButton = NodePath("rangeButton")
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = ExtResource("2_rkvq2")
@@ -110,9 +112,23 @@ position = Vector2(0, 31.6667)
 shape = SubResource("RectangleShape2D_th8ls")
 
 [node name="RangeHitbox" type="Area2D" parent="."]
-visible = false
 position = Vector2(0, -8)
 scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeHitbox"]
 shape = SubResource("CircleShape2D_2iw34")
+
+[node name="RangeVisible" type="Sprite2D" parent="RangeHitbox"]
+modulate = Color(1, 1, 1, 0.352941)
+position = Vector2(0, -0.111111)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("6_2x3lu")
+
+[node name="rangeButton" type="Button" parent="."]
+offset_left = -32.0
+offset_top = -2.0
+offset_right = 33.0
+offset_bottom = 65.0
+disabled = true
+toggle_mode = true
+flat = true

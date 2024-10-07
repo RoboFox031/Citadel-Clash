@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://87l02pnh8u8x"]
+[gd_scene load_steps=11 format=3 uid="uid://bcbhvg81ec06c"]
 
 [ext_resource type="Script" path="res://Scripts/lightning.gd" id="1_ucq7g"]
 [ext_resource type="Texture2D" uid="uid://da8pxbjm7wfvj" path="res://Sprites/Tower Defence Towers/Electric Tower/Tower 02 - Level 01 - Projectile.png" id="2_sxjal"]
