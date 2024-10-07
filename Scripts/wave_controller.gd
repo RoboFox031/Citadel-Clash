@@ -47,23 +47,20 @@ func nextWave():
 		active=true
 		#Adds one to the wave
 		waveCount+=1
-		print(waveCount)
+		$"../HUD/waveCount".text = str(waveCount)
 		#Controls amount, types and frequency 
 		#of enemies based on wave number
 		#Folowing statements define each grouping of waves
 		if waveCount<=5:
-			gap_timer.wait_time=2
+			gap_timer.wait_time=1
 			spawnEnemy(waveCount*2,orangeBallEnemy)
-		elif waveCount<=9:
-			gap_timer.wait_time=2
+		elif waveCount<=10:
+			gap_timer.wait_time=1
+			await spawnEnemy(waveCount,redBallEnemy)
 			await spawnEnemy(waveCount,orangeBallEnemy)
-			await spawnEnemy(waveCount-3,redBallEnemy)
 			spawnEnemy(waveCount-7,tinySplitEnemy)
-		elif waveCount ==10:
-			gap_timer.wait_time=2
-			spawnEnemy(1,bossBall)
 		elif waveCount <=15:
-			gap_timer.wait_time=1.5
+			gap_timer.wait_time=.8
 			#Multiplied by 1.5, to make more ememies than *1, but less than *2
 			await(spawnEnemy(waveCount*1.5,redBallEnemy))
 			spawnEnemy(waveCount-10,mediumSplitEnemy)
@@ -71,15 +68,20 @@ func nextWave():
 			gap_timer.wait_time =.1
 			spawnEnemy(100,orangeBallEnemy)
 		elif waveCount <=19:
-			gap_timer.wait_time=1
+			gap_timer.wait_time=.8
 			await(spawnEnemy(waveCount*2,redBallEnemy))
 			spawnEnemy(waveCount-16,bigSplitEnemy)
 		elif waveCount ==20:
-			gap_timer.wait_time=1
-			spawnEnemy(1,bossSplitEnemy)
+			gap_timer.wait_time=.5
+			await(spawnEnemy(5,redBallEnemy))
+			await spawnEnemy(1,mediumBlocker)
+			spawnEnemy(5,redBallEnemy)
 		elif waveCount <=25:
-			gap_timer.wait_time=1
+			gap_timer.wait_time=.8
 			spawnEnemy(1,tinySplitEnemy)
+		elif waveCount ==30:
+			gap_timer.wait_time=.8
+			spawnEnemy(1,bossBall)
 		else:
 			print("no more waves!")
 		pass

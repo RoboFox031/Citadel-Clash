@@ -7,3 +7,5 @@ Matriax -- Shield Animation: https://opengameart.org/content/fire-circle-fx
 rihatsux -- Heart Sprite: https://opengameart.org/content/heart-nes-colors
 
 pritishor -- Coin Sprite: https://opengameart.org/content/simple-coin
+
+Foozle -- Tower/Projectile Sprites: https://foozlecc.itch.io/spire-tower-pack-1 and https://foozlecc.itch.io/spire-tower-pack-4

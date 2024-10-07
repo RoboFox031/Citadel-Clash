@@ -85,7 +85,7 @@ radius = 9.0
 script = ExtResource("1_djxfb")
 health = 2
 speedMultiplier = 1.5
-worth = 2
+worth = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 position = Vector2(0, -7)

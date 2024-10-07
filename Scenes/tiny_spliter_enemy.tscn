@@ -101,7 +101,7 @@ script = ExtResource("1_dbr4r")
 health = 3
 speedMultiplier = 2.0
 damage = 2
-worth = 4
+worth = 1
 type = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
@@ -111,5 +111,5 @@ animation = &"Down"
 autoplay = "Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-visible = false
+position = Vector2(0, -8.88889)
 shape = SubResource("RectangleShape2D_mbqsn")

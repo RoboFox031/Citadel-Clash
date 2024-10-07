@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://sgcyw5tdj5ye"]
+
+[ext_resource type="Script" path="res://Scripts/arrow_tower.gd" id="1_xmyed"]
+[ext_resource type="PackedScene" uid="uid://ditg0goum4xp" path="res://Scenes/arrow.tscn" id="2_cgwyn"]
+[ext_resource type="Texture2D" uid="uid://clvndfpvj1a7l" path="res://Sprites/Tower Defence Towers/Arrow Tower/arrowTowerFinal.png" id="2_rkvq2"]
+[ext_resource type="Texture2D" uid="uid://c6x8tj4jxeq8t" path="res://Sprites/TileMap.png" id="3_b6dg6"]
+[ext_resource type="Texture2D" uid="uid://byxqik6omqs04" path="res://Sprites/Tower Defence Towers/Arrow Tower/Tower 01 - Level 01 - Weapon.png" id="4_8otco"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aakuh"]
+atlas = ExtResource("4_8otco")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm03g"]
+atlas = ExtResource("4_8otco")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjhfd"]
+atlas = ExtResource("4_8otco")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eai2f"]
+atlas = ExtResource("4_8otco")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lplt7"]
+atlas = ExtResource("4_8otco")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2ade"]
+atlas = ExtResource("4_8otco")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_na44h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aakuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm03g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjhfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eai2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lplt7")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2ade")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th8ls"]
+size = Vector2(64, 66.6667)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2iw34"]
+radius = 26.6687
+
+[node name="arrowTower" type="Node2D" node_paths=PackedStringArray("rangeBox", "placeBox")]
+z_as_relative = false
+y_sort_enabled = true
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_xmyed")
+attackRange = 8.0
+damage = 3
+attackCD = 1.0
+projectile = ExtResource("2_cgwyn")
+rangeBox = NodePath("RangeHitbox")
+placeBox = NodePath("PlacementHitbox")
+
+[node name="TowerBase" type="Sprite2D" parent="."]
+texture = ExtResource("2_rkvq2")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 128)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(49.75, 31.5)
+scale = Vector2(1.10937, 2.03125)
+texture = ExtResource("3_b6dg6")
+region_enabled = true
+region_rect = Rect2(256, 352, 32, 32)
+
+[node name="Weapon" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_na44h")
+animation = &"Attack"
+autoplay = "Idle"
+frame = 4
+frame_progress = 1.0
+offset = Vector2(0, -6)
+
+[node name="PlacementHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementHitbox"]
+position = Vector2(0, 31.6667)
+shape = SubResource("RectangleShape2D_th8ls")
+
+[node name="RangeHitbox" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, -8)
+scale = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeHitbox"]
+shape = SubResource("CircleShape2D_2iw34")

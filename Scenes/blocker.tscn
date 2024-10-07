@@ -59,12 +59,11 @@ size = Vector2(16, 20)
 
 [node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("blockTimer")]
 script = ExtResource("1_egw3f")
-health = 5
-speedMultiplier = 0.8
-damage = 2
-worth = 16
+health = 25
+damage = 5
+worth = 8
 type = 2
-supportFrequency = 10.0
+supportFrequency = 4.0
 supportLength = 4.0
 blockTimer = NodePath("../blockTimer")
 
