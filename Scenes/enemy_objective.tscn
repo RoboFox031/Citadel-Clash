@@ -10,4 +10,8 @@ script = ExtResource("1_xr3cd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vwvy6")
 
+[node name="EndDelay" type="Timer" parent="."]
+wait_time = 0.06
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="EndDelay" to="." method="_on_end_delay_timeout"]

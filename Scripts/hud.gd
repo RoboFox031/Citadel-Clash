@@ -1,5 +1,5 @@
 extends Node2D
-var health = 100
+var health = 2
 var wealth = 0
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var coin_count: Label = $CoinCount
@@ -41,6 +41,7 @@ func takeDamage(amount):
 	health-=amount
 	progress_bar.value =health
 	$ProgressBar/Label.text = str(progress_bar.value)
+
 
 #Depending on the button pressed, it creates an istance of that tower
 # and sets that tower to buidling mode
