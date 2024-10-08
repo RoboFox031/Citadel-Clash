@@ -13,7 +13,7 @@
 script = ExtResource("1_18jnv")
 startingCash = 55
 arrowCost = 45
-meleeCost = 120
+meleeCost = 110
 lightningCost = 300
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
