@@ -43,7 +43,7 @@ func spawnEnemy(amount:int,type:PackedScene):
 		gap_timer.wait_time = originalGap
 func nextWave():
 	#Only lets it start a new wave if the old one is done
-	if active == false:
+	#if active == false:
 		active=true
 		#Adds one to the wave
 		waveCount+=1
@@ -89,7 +89,7 @@ func nextWave():
 		elif waveCount ==40:
 			spawnEnemy(1,bossSplitEnemy)
 		elif waveCount <=49:
-			gap_timer.wait_time=.7
+			gap_timer.wait_time=.3
 			await spawnEnemy(waveCount/8,redBallEnemy)
 			await spawnEnemy(waveCount,tinySplitEnemy)
 			await spawnEnemy(waveCount/8,mediumSplitEnemy)
