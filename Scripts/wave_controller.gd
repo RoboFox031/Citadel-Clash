@@ -43,7 +43,7 @@ func spawnEnemy(amount:int,type:PackedScene):
 		gap_timer.wait_time = originalGap
 func nextWave():
 	#Only lets it start a new wave if the old one is done
-	#if active == false:
+	if active == false:
 		active=true
 		#Adds one to the wave
 		waveCount+=1
